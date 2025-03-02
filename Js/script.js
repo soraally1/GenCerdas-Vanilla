@@ -77,3 +77,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// Login Page
+document.querySelectorAll(".toggle-password").forEach(function(toggle) {
+    toggle.addEventListener("click", function() {
+        let passwordInput = document.getElementById("password");
+        let confirmPasswordInput = document.getElementById("confirm-password");
+        let icon = this.querySelector("i");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            confirmPasswordInput.type = "text";
+            icon.classList.replace("bx-low-vision", "bx-show");
+        } else {
+            passwordInput.type = "password";
+            confirmPasswordInput.type = "password";
+            icon.classList.replace("bx-show", "bx-low-vision");
+        }
+    });
+});
+
+
+function toggleMenu() {
+    document.querySelector(".mobile-menu").classList.toggle("show");
+}
