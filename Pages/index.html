@@ -1,47 +1,220 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GenCerdas</title>
-    <link rel="stylesheet" href="/Styles/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../Styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="/Assets/gencerdaslog.png" alt="GenCerdas Logo">
-        </div>
-        <div class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="G-gon">G-Gon</a>
-            <a href="#">Komunitas</a>
-            <a href="#">Courses</a>
-        </div>
-        <div class="login-btn">
-            <a href="#">Login</a>
-        </div>
+      <div class="logo">
+        <img src=../Assets/gencerdaslog.png alt="GenCerdas Logo" />
+      </div>
+      <div class="nav-links">
+        <a href="#" class="active">Home</a>
+        <a href="G-gon">G-Gon</a>
+        <a href="#">Komunitas</a>
+        <a href="#">Courses</a>
+      </div>
+      <div class="login-btn">
+        <a href="#">Login</a>
+      </div>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="left-content">
-            <img src="/Assets/PriaSigma.png" alt="Student Image">
+      <div class="left-content">
+        <img src="../Assets/PriaSigma.png" alt="Student Image" />
+      </div>
+
+      <div class="right-content">
+        <div class="right-wrap">
+          <h1>Hai aku<br />G'GON</h1>
+          <p>
+            Kedepannya aku akan membantu kamu untuk belajar dan mencari beasiswa
+          </p>
+
+          <div class="button-container">
+            <a href="#" class="btn-primary">Ayo berinteraksi!</a>
+            <a href="#" class="btn-secondary">Cari Beasiswa!</a>
+          </div>
+
+          <img
+            src="../Assets/G-Gon.png"
+            alt="Dinosaur mascot"
+            class="dino-img"
+          />
         </div>
-        
-        <div class="right-content">
-            <div class="right-wrap">
-                <h1>Hai aku<br>G'GON</h1>
-                <p>Kedepannya aku akan membantu kamu untuk belajar dan mencari beasiswa</p>
-    
-                <div class="button-container">
-                    <a href="#" class="btn-primary">Ayo berinteraksi!</a>
-                    <a href="#" class="btn-secondary">Cari Beasiswa!</a>
-                </div>
-    
-                <img src="/Assets/G-Gon.png" alt="Dinosaur mascot" class="dino-img">
-            </div>
-        </div>
+      </div>
     </section>
-</body>
+
+
+     <div class="wave-container"></div>
+
+
+    <!-- Beasiswa -->
+    <section class="card-section">
+      <div class="container">
+        <h2 class="section-title">Ayo cari beasiswa mu!</h2>
+        <p class="section-description">
+          Temukan beasiswa yang cocok untuk diri kamu!
+        </p>
+        <div class="card-container">
+          <div class="card">
+            <img src="../Assets/MEXT.png" alt="MEXT Scholarship" />
+            <div class="info">
+              <h3>MEXT Scholarship</h3>
+              <p>Japanese Government</p>
+              <p>🗓 Deadline: Mei 2024</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../Assets/LPDP.png" alt="Beasiswa LPDP" />
+            <div class="info">
+              <h3>Beasiswa LPDP</h3>
+              <p>Kemenkeu</p>
+              <p>🗓 Deadline: 31 Januari 2024 / 30 Juni 2024</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../Assets/BI.png" alt="Beasiswa Bank Indonesia" />
+            <div class="info">
+              <h3>Beasiswa Bank Indonesia</h3>
+              <p>Bank Indonesia</p>
+              <p>🗓 Deadline: 15 April 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- fitur Kami -->
+    <section class="fitur">
+      <h2 class="section-title">Inovasi Kami</h2>
+      <div class="gridfitur">
+        <div class="cardfitur">
+          <div class="icon">💬</div>
+          <h3>Chat AI</h3>
+          <p>
+            Memudahkan siswa untuk tanya jawab dengan AI yang dapat membantu
+            memberikan informasi seputar beasiswa.
+          </p>
+          <button>Mulai Chat</button>
+        </div>
+        <div class="cardfitur">
+          <div class="icon">📖</div>
+          <h3>Pembelajaran</h3>
+          <p>
+            Siswa dapat belajar mandiri mengenai materi beasiswa dengan konten
+            yang telah kami sediakan.
+          </p>
+          <button>Mulai Belajar</button>
+        </div>
+        <div class="cardfitur">
+          <div class="icon">👥</div>
+          <h3>Komunitas</h3>
+          <p>
+            Siswa bisa saling berinteraksi dengan siswa lain untuk berbagi
+            pengalaman dan informasi.
+          </p>
+          <button>Gabung Komunitas</button>
+        </div>
+        <div class="cardfitur">
+          <div class="icon">💰</div>
+          <h3>Bantuan</h3>
+          <p>
+            Beasiswa khusus untuk masyarakat kurang mampu dengan berbagai
+            kemudahan.
+          </p>
+          <button>Cari Bantuan</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="support">
+      <div class="support-content">
+        <div class="logo-container">
+          <div class="logo-icon">&#9733;</div>
+          <h2>Dukung Kami!</h2>
+        </div>
+
+        <p class="support-description">
+          Untuk membantu pendidikan pada daerah yang tertinggal dan membangun
+          masa depan yang lebih baik.
+        </p>
+
+        <a href="#" class="support-button">
+          <span>&#9829;</span>
+          Jadi Sukarelawan
+        </a>
+
+        <div class="support-stats">
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Sukarelawan</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Daerah</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">1000+</span>
+            <span class="stat-label">Pelajar Terbantu</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../Assets/gencerdaslog.png" alt="GenCerdas Logo" />
+          <p>
+            Membantu para pelajar Indonesia untuk meraih beasiswa impian mereka.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3>Website</h3>
+            <a href="#">Home</a>
+            <a href="#">G-Gon</a>
+            <a href="#">Komunitas</a>
+            <a href="#">Courses</a>
+          </div>
+          <div class="footer-column">
+            <h3>Beasiswa</h3>
+            <a href="#">Dalam Negeri</a>
+            <a href="#">Luar Negeri</a>
+            <a href="#">Kompetisi</a>
+          </div>
+          <div class="footer-column">
+            <h3>Kontak</h3>
+            <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#"><i class="far fa-envelope"></i> Email</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 GenCerdas. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
