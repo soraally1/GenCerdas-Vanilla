@@ -1,0 +1,500 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background:linear-gradient(135deg, #ff9800, #ff7300);
+    overflow-x: hidden;
+}
+
+/* General Styling */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 125px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+}
+
+p {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Login Box */
+.login-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Styling untuk label */
+label {
+    display: block;
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+/* Styling untuk input */
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+input:focus {
+    border: none;
+    outline: 2px solid white;
+    box-shadow: 0 0 8px white;
+    transition: all 0.3s ease-in-out;
+}
+
+.password-container {
+    position: relative;
+}
+.password-container i {
+    cursor: pointer;
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    transform: translateY(30%);
+    color: white;
+}
+
+
+/* Buttons */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff7300;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.login-btn:hover {
+    transform: scale(1.02);
+}
+
+.google-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+.google-btn:hover {
+    transform: scale(1.02);
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.separator {
+    text-align: center;
+    margin: 15px 0;
+    position: relative;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: white;
+}
+
+.separator span {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(150deg, #ffa622, #ff7300);
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 15px;
+    color: white;
+    font-size: 1rem;
+}
+
+.register-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* navbar */
+.navbar {
+    background-color: rgba(255, 138, 76, 0.9);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    margin: 2vh auto;
+    max-width: 1200px;
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a.active::after, 
+.nav-links a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.4s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: #fed7aa;
+}
+
+.nav-links a.active {
+    color: white;
+    font-weight: bold;
+}
+
+.login-nav {
+    background-color: transparent;
+    width: 100px;
+    border: 2px solid white;
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+}
+
+.login-nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    z-index: 1;
+    transition: color 0.4s ease-in-out;
+}
+
+.login-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: all 0.4s ease-in-out;
+    z-index: 0;
+}
+
+.login-nav:hover::before {
+    left: 0;
+}
+
+.login-nav:hover a {
+    color: #FF8A4C;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* HIDE LOGIN BUTTON ON MOBILE */
+@media (max-width: 768px) {
+    .login-nav {
+        display: none;
+    }
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .navbar {
+        margin: 1vh 5%;
+    }
+    
+    .dino-img {
+        width: 350px;
+        right: -50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 1rem 4%;
+    }
+    
+    .hero-section {
+        flex-direction: column-reverse;
+        padding: 2rem 5%;
+        gap: 3rem;
+    }
+    
+    .left-content, .right-content {
+        width: 100%;
+    }
+    
+    .left-content img {
+        max-width: 60%;
+    }
+    
+    .right-content h1 {
+        font-size: 3rem;
+    }
+    
+    .right-content p {
+        max-width: 100%;
+    }
+    
+    .dino-img {
+        right: 0;
+        width: 300px;
+    }
+    
+    .gridfitur {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 101;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        flex-direction: column;
+        background-color: #FF8A4C;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        padding-top: 80px;
+        z-index: 100;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links a {
+        margin: 1.5rem 0;
+        font-size: 1.5rem;
+    }
+    
+    .login-nav {
+        display: none;
+    }
+    
+    .left-content img {
+        max-width: 80%;
+    }
+    
+    .right-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .right-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .dino-img {
+        width: 250px;
+        opacity: 0.8;
+    }
+    
+    .support-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        margin: 1vh 3%;
+        border-radius: 15px;
+    }
+    
+    .right-content h1 {
+        font-size: 2rem;
+    }
+    
+    .right-content p {
+        font-size: 1rem;
+    }
+    
+    .button-container {
+        width: 100%;
+    }
+    
+    .dino-img {
+        width: 200px;
+        opacity: 0.7;
+    }
+    
+    .card-container {
+        gap: 20px;
+    }
+    
+    .card {
+        width: 100%;
+    }
+    
+    .gridfitur {
+        grid-template-columns: 1fr;
+    }
+    
+    .logo-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .support h2 {
+        font-size: 2rem;
+    }
+}
