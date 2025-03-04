@@ -1,1008 +1,277 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GenCerdas</title>
-    <!-- <link rel="stylesheet" href="styles.css" /> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Page - GenCerdas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
     <style>
-        /* CSS Reset and Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: #FAB12F;
-    overflow-x: hidden;
-}
-
-/* Typography */
-h1, h2, h3 {
-    color: white;
-}
-
-p {
-    line-height: 1.6;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.section-description {
-    font-size: 1.1rem;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-/* Navbar */
-.navbar {
-    background-color: rgba(255, 138, 76, 0.9);
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    margin: 2vh auto;
-    max-width: 1200px;
-    position: sticky;
-    top: 10px;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.logo img {
-    height: 50px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    position: relative;
-    padding-bottom: 5px;
-    transition: color 0.3s ease-in-out;
-}
-
-.nav-links a.active::after, 
-.nav-links a:hover::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: white;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background-color: white;
-    transition: width 0.4s ease-in-out;
-}
-
-.nav-links a:hover {
-    color: #fed7aa;
-}
-
-.nav-links a.active {
-    color: white;
-    font-weight: bold;
-}
-
-.login-btn {
-    background-color: transparent;
-    border: 2px solid white;
-    border-radius: 50px;
-    overflow: hidden;
-    display: inline-block;
-    transition: all 0.4s ease-in-out;
-    position: relative;
-}
-
-.login-btn a {
-    display: block;
-    padding: 0.5rem 1.5rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    position: relative;
-    z-index: 1;
-    transition: color 0.4s ease-in-out;
-}
-
-.login-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    transition: all 0.4s ease-in-out;
-    z-index: 0;
-}
-
-.login-btn:hover::before {
-    left: 0;
-}
-
-.login-btn:hover a {
-    color: #FF8A4C;
-}
-
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    transition: all 0.3s ease;
-    background-color: white;
-}
-
-/* Hero Section */
-.hero-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-    min-height: calc(100vh - 120px);
-}
-
-.left-content {
-    width: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.left-content img {
-    max-width: 100%;
-    height: auto;
-    transform: scaleX(-1);
-}
-
-.right-content {
-    width: 50%;
-    background-color: #FF8A4C;
-    border-radius: 25px;
-    padding: 3rem 2rem;
-    color: white;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.right-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.right-content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 70%;
-    margin-bottom: 2rem;
-}
-
-.right-wrap {
-    text-align: start;
-    position: relative;
-    z-index: 2;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 250px;
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: white;
-    color: #FF8A4C;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.btn-secondary {
-    display: inline-block;
-    background-color: transparent;
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 2px solid white;
-    text-align: center;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.btn-secondary:hover {
-    color: #FF8A4C;
-    background-color: white;
-}
-
-.dino-img {
-    position: absolute;
-    top: 50%;
-    right: -100px;
-    width: 450px;
-    transform: translateY(-50%);
-    z-index: 1;
-    transition: all 0.5s ease;
-}
-
-/* Card Section */
-.card-section {
-    background: #FA812F;
-    padding: 5rem 2rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-.card {
-    background-color: white;
-    color: black;
-    border-radius: 20px;
-    overflow: hidden;
-    width: 300px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-bottom: 2px solid #ddd;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.card img:hover {
-    opacity: 0.9;
-}
-
-.info {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.info h3 {
-    color: #333;
-    font-size: 1.2rem;
-}
-
-.info p {
-    color: #666;
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-/* Features Section */
-.fitur {
-    padding: 5rem 2rem;
-    background: #FA812F;
-}
-
-.gridfitur {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 2rem auto 0;
-}
-
-.cardfitur {
-    background: #FAB12F;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    animation: fadeIn 0.8s forwards;
-}
-
-.cardfitur:hover {
-    transform: translateY(-10px);
-}
-
-.icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.cardfitur h3 {
-    font-size: 1.5rem;
-}
-
-.cardfitur p {
-    color: white;
-    margin-bottom: 1rem;
-}
-
-button {
-    background: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    color: #FA812F;
-    align-self: flex-start;
-}
-
-button:hover {
-    background: #FF8A4C;
-    color: white;
-    transform: scale(1.05);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Support Section */
-.support {
-    position: relative;
-    width: 100%;
-    min-height: 600px;
-    background: url('Assets/HutanRimba.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    color: white;
-    padding: 5rem 2rem;
-}
-
-.support::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
-
-.support-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.logo-icon {
-    width: 50px;
-    height: 50px;
-    background-color: #f8a53c;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-}
-
-.support h2 {
-    font-size: 2.8rem;
-    margin: 0;
-}
-
-.support-description {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.support-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background-color: white;
-    color: #333;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-bottom: 3rem;
-    transition: all 0.3s ease;
-}
-
-.support-button:hover {
-    transform: scale(1.05);
-    background-color: #f8a53c;
-    color: white;
-}
-
-.support-stats {
-    display: flex;
-    gap: 3rem;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.stat-label {
-    font-size: 1rem;
-}
-
-/* Footer */
-.footer {
-    background-color: #FF8A4C;
-    color: white;
-    padding: 4rem 2rem 1rem;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 3rem;
-}
-
-.footer-logo {
-    flex: 1;
-    min-width: 250px;
-}
-
-.footer-logo img {
-    height: 60px;
-    margin-bottom: 1rem;
-}
-
-.footer-links {
-    flex: 2;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 2rem;
-}
-
-.footer-column {
-    min-width: 150px;
-}
-
-.footer-column h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-}
-
-.footer-column a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin-bottom: 0.8rem;
-    transition: color 0.3s ease;
-}
-
-.footer-column a:hover {
-    color: #fed7aa;
-}
-
-.footer-bottom {
-    max-width: 1200px;
-    margin: 3rem auto 0;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-    .navbar {
-        margin: 1vh 5%;
-    }
-    
-    .dino-img {
-        width: 350px;
-        right: -50px;
-    }
-}
-
-@media (max-width: 992px) {
-    .navbar {
-        padding: 1rem 4%;
-    }
-    
-    .hero-section {
-        flex-direction: column-reverse;
-        padding: 2rem 5%;
-        gap: 3rem;
-    }
-    
-    .left-content, .right-content {
-        width: 100%;
-    }
-    
-    .left-content img {
-        max-width: 60%;
-    }
-    
-    .right-content h1 {
-        font-size: 3rem;
-    }
-    
-    .right-content p {
-        max-width: 100%;
-    }
-    
-    .dino-img {
-        right: 0;
-        width: 300px;
-    }
-    
-    .gridfitur {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-        z-index: 101;
-    }
-    
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    .nav-links {
-        position: fixed;
-        left: -100%;
-        top: 0;
-        flex-direction: column;
-        background-color: #FF8A4C;
-        width: 100%;
-        height: 100vh;
-        text-align: center;
-        transition: 0.3s;
-        padding-top: 80px;
-        z-index: 100;
-    }
-    
-    .nav-links.active {
-        left: 0;
-    }
-    
-    .nav-links a {
-        margin: 1.5rem 0;
-        font-size: 1.5rem;
-    }
-    
-    .login-btn {
-        display: none;
-    }
-    
-    .left-content img {
-        max-width: 80%;
-    }
-    
-    .right-content {
-        padding: 2rem 1.5rem;
-    }
-    
-    .right-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .dino-img {
-        width: 250px;
-        opacity: 0.8;
-    }
-    
-    .support-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .navbar {
-        margin: 1vh 3%;
-        border-radius: 15px;
-    }
-    
-    .right-content h1 {
-        font-size: 2rem;
-    }
-    
-    .right-content p {
-        font-size: 1rem;
-    }
-    
-    .button-container {
-        width: 100%;
-    }
-    
-    .dino-img {
-        width: 200px;
-        opacity: 0.7;
-    }
-    
-    .card-container {
-        gap: 20px;
-    }
-    
-    .card {
-        width: 100%;
-    }
-    
-    .gridfitur {
-        grid-template-columns: 1fr;
-    }
-    
-    .logo-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .support h2 {
-        font-size: 2rem;
-    }
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FF8A4C, #FFB67F);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: rgba(255, 138, 76, 0.9);
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            margin: 2vh auto;
+            max-width: 1200px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            animation: slideDown 1s ease-out;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: white;
+            left: 0;
+            bottom: -5px;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            width: 200%;
+            animation: slide 8s infinite alternate ease-in-out;
+        }
+
+        .slide {
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .carousel-text h1 {
+            font-size: 2.5rem;
+        }
+
+        .carousel-text p {
+            font-size: 1rem;
+        }
+
+        .event-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 3rem 5%;
+            animation: fadeUp 1s ease-in-out;
+        }
+
+        .event-card {
+            background: white;
+            color: #333;
+            width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .event-details {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .event-details h3 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .register-btn {
+            background: #FF8A4C;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+
+        .register-btn:hover {
+            background: #FF7043;
+        }
+
+        .form-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        .form-container h2 {
+            margin-bottom: 15px;
+        }
+
+        .registration-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+
+        .registration-form button {
+            padding: 10px;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
     </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="logo">
-        <img src="Assets/gencerdaslog.png" alt="GenCerdas Logo" />
-      </div>
-      <div class="nav-links">
-        <a href="#" class="active">Home</a>
-        <a href="G-gon">G-Gon</a>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="../Assets/gencerdaslog.png" alt="GenCerdas Logo">
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="G-gon.html">G-Gon</a>
         <a href="#">Komunitas</a>
         <a href="#">Courses</a>
-      </div>
-      <div class="login-btn">
-        <a href="#">Login</a>
-      </div>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="left-content">
-        <img src="Assets/PriaSigma.png" alt="Student Image" />
-      </div>
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="slide" style="background-image: url('../Assets/Campusexpo.png')"></div>
+        <div class="slide" style="background-image: url('../Assets/Campusexpo2.jpeg')"></div>
+    </div>
+    <div class="carousel-text">
+        <h1>Discover Your Global Education Journey</h1>
+        <p>Explore opportunities at world-class universities</p>
+    </div>
+</div>
 
-      <div class="right-content">
-        <div class="right-wrap">
-          <h1>Hai aku<br />G'GON</h1>
-          <p>
-            Kedepannya aku akan membantu kamu untuk belajar dan mencari beasiswa
-          </p>
-
-          <div class="button-container">
-            <a href="#" class="btn-primary">Ayo berinteraksi!</a>
-            <a href="#" class="btn-secondary">Cari Beasiswa!</a>
-          </div>
-
-          <img
-            src="Assets/G-Gon.png"
-            alt="Dinosaur mascot"
-            class="dino-img"
-          />
+<div class="event-section">
+    <div class="event-card">
+        <img src="../Assets/Campusexpo2.jpeg">
+        <div class="event-details">
+            <h3>International Campus Expo 2025</h3>
+            <p>📅 5-6 Maret 2025</p>
+            <p>📍 Jakarta</p>
+            <button class="register-btn" onclick="showForm()">Daftar</button>
         </div>
-      </div>
-    </section>
+    </div>
+</div>
 
-    <!-- Beasiswa -->
-    <section class="card-section">
-      <div class="container">
-        <h2 class="section-title">Ayo cari beasiswa mu!</h2>
-        <p class="section-description">Temukan beasiswa yang cocok untuk diri kamu!</p>
-        <div class="card-container">
-          <div class="card">
-            <img src="Assets/MEXT.png" alt="MEXT Scholarship" />
-            <div class="info">
-              <h3>MEXT Scholarship</h3>
-              <p>Japanese Government</p>
-              <p>🗓 Deadline: Mei 2024</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="Assets/LPDP.png" alt="Beasiswa LPDP" />
-            <div class="info">
-              <h3>Beasiswa LPDP</h3>
-              <p>Kemenkeu</p>
-              <p>🗓 Deadline: 31 Januari 2024 / 30 Juni 2024</p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="Assets/BI.png" alt="Beasiswa Bank Indonesia" />
-            <div class="info">
-              <h3>Beasiswa Bank Indonesia</h3>
-              <p>Bank Indonesia</p>
-              <p>🗓 Deadline: 15 April 2024</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="form-container" id="registrationForm">
+    <form class="registration-form">
+        <h2>Form Pendaftaran</h2>
+        <input type="text" placeholder="Nama" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="No. HP" required>
+        <button type="submit">Daftar</button>
+        <button type="button" onclick="hideForm()">Tutup</button>
+    </form>
+</div>
 
-    <!-- fitur Kami -->
-    <section class="fitur">
-        <h2 class="section-title">Inovasi Kami</h2>
-        <div class="gridfitur">
-            <div class="cardfitur">
-                <div class="icon">💬</div>
-                <h3>Chat AI</h3>
-                <p>Memudahkan siswa untuk tanya jawab dengan AI yang dapat membantu memberikan informasi seputar beasiswa.</p>
-                <button>Mulai Chat</button>
-            </div>
-            <div class="cardfitur">
-                <div class="icon">📖</div>
-                <h3>Pembelajaran</h3>
-                <p>Siswa dapat belajar mandiri mengenai materi beasiswa dengan konten yang telah kami sediakan.</p>
-                <button>Mulai Belajar</button>
-            </div>
-            <div class="cardfitur">
-                <div class="icon">👥</div>
-                <h3>Komunitas</h3>
-                <p>Siswa bisa saling berinteraksi dengan siswa lain untuk berbagi pengalaman dan informasi.</p>
-                <button>Gabung Komunitas</button>
-            </div>
-            <div class="cardfitur">
-                <div class="icon">💰</div>
-                <h3>Bantuan</h3>
-                <p>Beasiswa khusus untuk masyarakat kurang mampu dengan berbagai kemudahan.</p>
-                <button>Cari Bantuan</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support Section -->
-    <section class="support">
-      <div class="support-content">
-        <div class="logo-container">
-          <div class="logo-icon">&#9733;</div>
-          <h2>Dukung Kami!</h2>
-        </div>
-        
-        <p class="support-description">
-          Untuk membantu pendidikan pada daerah yang tertinggal dan membangun masa depan yang lebih baik.
-        </p>
-        
-        <a href="#" class="support-button">
-          <span>&#9829;</span>
-          Jadi Sukarelawan
-        </a>
-        
-        <div class="support-stats">
-          <div class="stat-item">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Sukarelawan</span>
-          </div>
-          
-          <div class="stat-item">
-            <span class="stat-number">50+</span>
-            <span class="stat-label">Daerah</span>
-          </div>
-          
-          <div class="stat-item">
-            <span class="stat-number">1000+</span>
-            <span class="stat-label">Pelajar Terbantu</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="Assets/gencerdaslog.png" alt="GenCerdas Logo" />
-          <p>Membantu para pelajar Indonesia untuk meraih beasiswa impian mereka.</p>
-        </div>
-        <div class="footer-links">
-          <div class="footer-column">
-            <h3>Website</h3>
-            <a href="#">Home</a>
-            <a href="#">G-Gon</a>
-            <a href="#">Komunitas</a>
-            <a href="#">Courses</a>
-          </div>
-          <div class="footer-column">
-            <h3>Beasiswa</h3>
-            <a href="#">Dalam Negeri</a>
-            <a href="#">Luar Negeri</a>
-            <a href="#">Kompetisi</a>
-          </div>
-          <div class="footer-column">
-            <h3>Kontak</h3>
-            <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-            <a href="#"><i class="far fa-envelope"></i> Email</a>
-            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 GenCerdas. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script>
-        // Hamburger Menu Toggle
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const navLinkItems = document.querySelectorAll(".nav-links a");
-
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-});
-
-// Close menu when a nav link is clicked
-navLinkItems.forEach(item => {
-    item.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-    });
-});
-
-// Scroll animations
-document.addEventListener("DOMContentLoaded", () => {
-    // Animate feature cards with delay
-    const featureCards = document.querySelectorAll('.cardfitur');
-    featureCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
-    });
-    
-    // Animate cards on scroll
-    const animateOnScroll = () => {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            const cardPosition = card.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if (cardPosition < screenPosition) {
-                card.style.transform = 'translateY(-10px)';
-                card.style.opacity = '1';
-            }
-        });
-    };
-    
-    // Add sticky navbar effect
-    const navbar = document.querySelector('.navbar');
-    const navbarSticky = () => {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 138, 76, 0.95)';
-            navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
-        } else {
-            navbar.style.background = 'rgba(255, 138, 76, 0.9)';
-            navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-        }
-    };
-    
-    // Add dinosaur parallax effect
-    const dinoImg = document.querySelector('.dino-img');
-    const parallaxDino = () => {
-        const scrollValue = window.scrollY;
-        if (dinoImg && window.innerWidth > 768) {
-            dinoImg.style.transform = `translateY(calc(-50% + ${scrollValue * 0.2}px))`;
-        }
-    };
-    
-    // Initialize animations
-    animateOnScroll();
-    
-    // Add scroll event listeners
-    window.addEventListener('scroll', () => {
-        animateOnScroll();
-        navbarSticky();
-        parallaxDino();
-    });
-    
-    // Add resize event listener
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            hamburger.classList.remove("active");
-            navLinks.classList.remove("active");
-        }
-    });
-});
-    </script>
-  </body>
+<script>
+    function showForm() { registrationForm.style.display = 'block'; }
+    function hideForm() { registrationForm.style.display = 'none'; }
+</script>
+</body>
 </html>
+
