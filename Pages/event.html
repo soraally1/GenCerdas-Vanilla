@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Page - GenCerdas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="../Styles/event.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../Assets/gencerdaslog.png" alt="GenCerdas Logo" />
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="G-gon.html">G-Gon</a>
+            <a href="event.html">Event</a>
+            <a href="#">Komunitas</a>
+            <a href="#">Courses</a>
+        </div>
+        <div class="login-nav">
+            <a href="login.html">Login</a>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>   
+
+<div class="carousel-container">
+    <div class="carousel">
+        <div class="slide" style="background-image: url('../Assets/Campusexpo.png')"></div>
+        <div class="slide" style="background-image: url('../Assets/Campusexpo2.jpeg')"></div>
+    </div>
+    <div class="carousel-text">
+        <h1>Discover Your Global Education Journey</h1>
+        <p>Explore opportunities at world-class universities</p>
+    </div>
+</div>
+
+<div class="event-section">
+    <div class="event-card">
+        <img src="../Assets/Campusexpo2.jpeg">
+        <div class="event-details">
+            <h3>International Campus Expo 2025</h3>
+            <p>📅 5-6 Maret 2025</p>
+            <p>📍 Jakarta</p>
+            <button class="register-btn" onclick="showForm()">Daftar</button>
+        </div>
+    </div>
+    <div class="event-card">
+        <img src="../Assets/Campusexpo2.jpeg">
+        <div class="event-details">
+            <h3>International Campus Expo 2025</h3>
+            <p>📅 5-6 Maret 2025</p>
+            <p>📍 Jakarta</p>
+            <button class="register-btn" onclick="showForm()">Daftar</button>
+        </div>
+    </div>
+</div>
+
+<div class="form-container" id="registrationForm">
+    <form class="registration-form">
+        <h2>Form Pendaftaran</h2>
+        <input type="text" placeholder="Nama" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="No. HP" required>
+        <button type="submit">Daftar</button>
+        <button type="button" onclick="hideForm()">Tutup</button>
+    </form>
+</div>
+
+<script>
+    function showForm() { registrationForm.style.display = 'block'; }
+    function hideForm() { registrationForm.style.display = 'none'; }
+</script>
+</body>
+</html>
+
