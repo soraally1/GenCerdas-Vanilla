@@ -208,7 +208,7 @@ input:focus {
 
 .nav-links {
     display: flex;
-    gap: 3rem;
+    gap: 1.5rem;
 }
 
 .nav-links a {
