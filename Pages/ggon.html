@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Chatbot</title>
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="stylesheet" href="../Styles/ggon.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../Assets/gencerdaslog.png" alt="GenCerdas Logo" />
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="ggon.html">G-Gon</a>
+            <a href="event.html">Event</a>
+            <a href="komunitas.html">Komunitas</a>
+            <a href="course.html">Courses</a>
+        </div>
+        <div class="login-nav">
+            <a href="login.html">Login</a>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>   
+
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="header-title">Chat with G'Gon</div>
+            </div>
+            
+            <div class="chat-body" id="chat-body">
+                <div class="message bot-message animate__animated animate__fadeIn">
+                    <div class="avatar">
+                        <img src="../Assets/G-Gon.png" alt="G'Gon Avatar">
+                    </div>
+                    <div class="message-content">
+                        <p>Hi! Apa yang bisa aku bantu hari ini? Jika kamu membutuhkan bantuan mengenai beasiswa baik di dalam maupun luar negeri, aku siap membantu! 😊</p>
+                        <div class="timestamp">8:54:56 PM</div>
+                    </div>
+                </div>
+                <!-- User messages will be added here by JavaScript -->
+            </div>
+            
+            <div class="chat-footer">
+                <button class="emoji-btn"><i class="far fa-smile"></i></button>
+                <button class="attach-btn"><i class="fas fa-paperclip"></i></button>
+                <input type="text" class="chat-input" id="message-input" placeholder="Type a message...">
+                <button class="send-btn" id="send-button"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        
+        <div class="dragon-container">
+            <img src="../Assets/G-Gon.png" class="dragon-img" id="dragon-image" alt="Dragon Assistant">
+            <div class="status-badge animate__animated animate__fadeIn">
+                <i class="fas fa-circle"></i> Listening
+            </div>
+        </div>
+    </div>
+
+  <script src="../Js/ggon.js"></script>
+</body>
+</html>
