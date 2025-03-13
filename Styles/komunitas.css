@@ -345,7 +345,7 @@ body {
 
 .search-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
     margin: 20px auto;
@@ -367,6 +367,8 @@ body {
     border-radius: 8px;
     font-size: 16px;
     transition: all 0.2s ease;
+    display: flex;
+    width: 50%;
 }
 
 .search-container input:focus, .search-container select:focus {
