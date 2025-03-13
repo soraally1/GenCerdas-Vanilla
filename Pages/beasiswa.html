@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beasiswa</title>
-    <link rel="stylesheet" href="../Styles/beasiswa.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GenCerdas</title>
+    <!-- <link rel="stylesheet" href="../Styles/course.css" /> -->
+    <link rel="stylesheet" href="../Styles/sidebar.css" />
+    <link rel="stylesheet" href="../Styles/beasiswa.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="card-section">
-        <div class="container">
+    <div class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn">
+            <i class='bx bx-chevron-right' id="sidebarIcon"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="course.html" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="#" data-text="Podcast"><i class="fas fa-book"></i></a></li>
+                <li><a href="upload.html" data-text="Document"><i class="fas fa-file"></i></a></li>
+                <li><a href="#" data-text="Achievements"><i class="fas fa-star"></i></a></li>
+                <li><a href="beasiswa.html" class="active" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <section class="utama">
+        <div class="container-h1">
           <h1 class="section-title">Available Scholarships</h1>
           <div class="card-container">
             <div class="card">
@@ -19,7 +43,7 @@
                 <p>Program beasiswa dari pemerintah Jepang untuk mahasiswa internasional yang ingin melanjutkan studi S1/S2/S3 di Jepang dengan tanggungan biaya penuh dan tunjangan hidup.</p>
                 <p>Value: Biaya kuliah penuh + ¥117.000-¥147.000 per bulan</p>
                 <p>Deadline: Invalid Date</p>
-                <button>Apply Now</button>
+                <button class="button-card">Apply Now</button>
               </div>
             </div>
             <div class="card">
@@ -30,7 +54,7 @@
                 <p>Beasiswa prestisius dari pemerintah untuk warga negara Indonesia yang ingin melanjutkan studi S2 atau S3 baik di dalam maupun luar negeri.</p>
                 <p>Value: Pendanaan penuh hingga $50.000/tahun</p>
                 <p>Deadline: 4/30/2024</p>
-                <button>Apply Now</button>
+                <button class="button-card">Apply Now</button>
               </div>
             </div>
             <div class="card">
@@ -41,11 +65,12 @@
                 <p>Program beasiswa bergengsi dari Bank Indonesia untuk mahasiswa berprestasi di bidang ekonomi, perbankan, dan keuangan</p>
                 <p>Value: Biaya kuliah penuh + tunjangan bulanan</p>
                 <p>Deadline: 4/15/2024</p>
-                <button>Apply Now</button>
+                <button class="button-card">Apply Now</button>
               </div>
             </div>
           </div>
         </div>
-      </section>
+    </section>
+    <script src="../Js/beasiswa.js"></script>
 </body>
 </html>
