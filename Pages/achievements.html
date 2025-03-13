@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learning Dashboard</title>
+   <link rel="stylesheet" href="../Styles/achievements.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card animate-in">
+            <div class="level-info">
+                <div class="level-badge">1</div>
+                <div class="level-text">
+                    <h2>Level 1</h2>
+                    <span class="level-tag">Pelajar Pemanggu</span>
+                </div>
+            </div>
+            
+            <div class="chef-avatar">
+                <img src="../Assets/mascot.png" alt="Chef Character">
+            </div>
+            
+            <div class="progress-container">
+                <div class="xp-labels1">
+                    <span>1240 XP</span>
+                    <span>2000 XP</span>
+                </div>
+                <div class="xp-progress">
+                    <div class="progress-bar" style="width: 62%;"></div>
+                </div>
+                <div class="xp-remaining">760 XP untuk naik peringkat</div>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon flame-icon">🔥</div>
+                    <div class="stat-value">2 Hari</div>
+                    <div class="stat-label">Streak Belajar</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon check-icon">✓</div>
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Tugas Selesai</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon clock-icon">⏱</div>
+                    <div class="stat-value">2j</div>
+                    <div class="stat-label">Waktu Belajar</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon headphone-icon">🎧</div>
+                    <div class="stat-value">3</div>
+                    <div class="stat-label">Podcast Didengar</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="achievements-card animate-in" style="animation-delay: 0.1s;">
+            <div class="achievements-title">
+                <i>🏆</i>
+                <h3>Pencapaian Terbaru</h3>
+            </div>
+            
+            <div class="achievement-item">
+                <div class="achievement-info">
+                    <div class="achievement-icon">🌟</div>
+                    <div class="achievement-text">
+                        <h4>Mencapai Level 3</h4>
+                        <div class="achievement-date">20 Jan 2024</div>
+                    </div>
+                </div>
+                <div class="achievement-xp">+500 XP</div>
+            </div>
+            
+            <div class="achievement-item">
+                <div class="achievement-info">
+                    <div class="achievement-icon">🔥</div>
+                    <div class="achievement-text">
+                        <h4>7 Hari Berturut-turut Belajar</h4>
+                        <div class="achievement-date">19 Jan 2024</div>
+                    </div>
+                </div>
+                <div class="achievement-xp">+150 XP</div>
+            </div>
+            
+            <div class="achievement-item">
+                <div class="achievement-info">
+                    <div class="achievement-icon">🎧</div>
+                    <div class="achievement-text">
+                        <h4>Menyelesaikan Podcast Pertama</h4>
+                        <div class="achievement-date">18 Jan 2024</div>
+                    </div>
+                </div>
+                <div class="achievement-xp">+100 XP</div>
+            </div>
+        </div>
+    
+            <div class="nav-container">
+                <button class="nav-item active" onclick="filterCards('all')">Semua</button>
+                <button class="nav-item" onclick="filterCards('kursus')">Kursus</button>
+                <button class="nav-item" onclick="filterCards('kuis')">Kuis</button>
+                <button class="nav-item" onclick="filterCards('pembelajaran')">Pembelajaran</button>
+                <button class="nav-item" onclick="filterCards('keaktifan')">Keaktifan</button>
+                <button class="nav-item" onclick="filterCards('sosial')">Sosial</button>
+                <button class="nav-item" onclick="filterCards('podcast')">Podcast</button>
+            </div>
+            
+            <div class="achievements-container">
+                <!-- Kartu 1 -->
+                <div class="achievement-card kursus">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-target">
+                            <i class="fas">⊙</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Langkah Pertama</div>
+                            <div class="achievement-subtitle">Selesaikan kursus pertamamu</div>
+                        </div>
+                        <div class="achievement-xp">+50 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>Progress: 100%</div>
+                        <div class="completed">✓ Completed 2024-01-15</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 2 -->
+                <div class="achievement-card kursus">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-bolt">
+                            <i class="fas">⚡</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Pembelajar Cepat</div>
+                            <div class="achievement-subtitle">Selesaikan 5 kursus</div>
+                        </div>
+                        <div class="achievement-xp">+100 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>3/5 kursus selesai</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 3 -->
+                <div class="achievement-card kuis">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-flame">
+                            <i class="fas">🔥</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Rajin Belajar</div>
+                            <div class="achievement-subtitle">7 hari berturut-turut belajar</div>
+                        </div>
+                        <div class="achievement-xp">+150 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 100%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>Progress: 100%</div>
+                        <div class="completed">✓ Completed 2024-01-20</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 4 -->
+                <div class="achievement-card pembelajaran">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-video">
+                            <i class="fas">🎬</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Pencari Ilmu</div>
+                            <div class="achievement-subtitle">Tonton 10 video pembelajaran</div>
+                        </div>
+                        <div class="achievement-xp">+200 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 30%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>3/10 video ditonton</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 5 -->
+                <div class="achievement-card kuis">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-trophy">
+                            <i class="fas">🏆</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Juara Kuis</div>
+                            <div class="achievement-subtitle">Dapatkan nilai 100% di 3 kuis</div>
+                        </div>
+                        <div class="achievement-xp">+300 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 67%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>2/3 nilai sempurna</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 6 -->
+                <div class="achievement-card sosial">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-butterfly">
+                            <i class="fas">🦋</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Kupu-kupu Sosial</div>
+                            <div class="achievement-subtitle">Berpartisipasi dalam 5 diskusi komunitas</div>
+                        </div>
+                        <div class="achievement-xp">+150 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 40%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>2/5 diskusi</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 7 -->
+                <div class="achievement-card podcast">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-headphones">
+                            <i class="fas">🎧</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Pendengar Setia</div>
+                            <div class="achievement-subtitle">Dengarkan 5 podcast sampai selesai</div>
+                        </div>
+                        <div class="achievement-xp">+100 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>3/5 podcast selesai</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 8 -->
+                <div class="achievement-card podcast">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-music">
+                            <i class="fas">🎙️</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Pencinta Audio</div>
+                            <div class="achievement-subtitle">Dengarkan total 2 jam podcast</div>
+                        </div>
+                        <div class="achievement-xp">+200 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 37.5%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>45/120 menit</div>
+                    </div>
+                </div>
+                
+                <!-- Kartu 9 -->
+                <div class="achievement-card keaktifan">
+                    <div class="achievement-header">
+                        <div class="achievement-icon icon-radio">
+                            <i class="fas">📻</i>
+                        </div>
+                        <div class="achievement-text">
+                            <div class="achievement-title">Kolektor Podcast</div>
+                            <div class="achievement-subtitle">Dengarkan podcast dari 5 kategori berbeda</div>
+                        </div>
+                        <div class="achievement-xp">+250 XP</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 20%;"></div>
+                    </div>
+                    <div class="progress-text">
+                        <div>1/5 kategori</div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+
+    <script>
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Hapus kelas active dari semua tombol
+                document.querySelectorAll('.nav-item').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Tambahkan kelas active ke tombol yang diklik
+                this.classList.add('active');
+                
+                // Di sini Anda bisa menambahkan logika filter
+                // misalnya menampilkan kartu yang sesuai dengan kategori
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tab functionality
+            const tabs = document.querySelectorAll('.tab');
+            const contentSections = document.querySelector('.learning-paths');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Simulate content change with animation
+                    contentSections.style.opacity = '0';
+                    contentSections.style.transform = 'translateY(10px)';
+                    
+                    setTimeout(() => {
+                        // In a real app, you would change content here
+                        contentSections.style.opacity = '1';
+                        contentSections.style.transform = 'translateY(0)';
+                    }, 300);
+                });
+            });
+            
+            // Make cards interactive
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            const pathCards = document.querySelectorAll('.path-card');
+            pathCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Responsive handling for horizontal scrolling tabs
+            const tabsContainer = document.querySelector('.tabs-container');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            
+            tabsContainer.addEventListener('mousedown', (e) => {
+                isDown = true;
+                tabsContainer.style.cursor = 'grabbing';
+                startX = e.pageX - tabsContainer.offsetLeft;
+                scrollLeft = tabsContainer.scrollLeft;
+            });
+            
+            tabsContainer.addEventListener('mouseleave', () => {
+                isDown = false;
+                tabsContainer.style.cursor = 'grab';
+            });
+            
+            tabsContainer.addEventListener('mouseup', () => {
+                isDown = false;
+                tabsContainer.style.cursor = 'grab';
+            });
+            
+            tabsContainer.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - tabsContainer.offsetLeft;
+                const walk = (x - startX) * 2;
+                tabsContainer.scrollLeft = scrollLeft - walk;
+            });
+            
+            // Check for mobile/small screens and adjust layout if needed
+            function checkScreenSize() {
+                const width = window.innerWidth;
+                const statsContainer = document.querySelector('.stats-container');
+                
+                if (width <= 480) {
+                    // Extra small screens
+                    if (statsContainer.children.length === 4) {
+                        // Ensure we have 2x2 grid for smaller screens
+                        statsContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                    }
+                } else if (width <= 768) {
+                    // Small screens
+                    statsContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                } else {
+                    // Medium and larger screens
+                    statsContainer.style.gridTemplateColumns = 'repeat(4, 1fr)';
+                }
+            }
+            
+            // Initial check
+            checkScreenSize();
+            
+            // Listen for window resize
+            window.addEventListener('resize', checkScreenSize);
+        });
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.achievement-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

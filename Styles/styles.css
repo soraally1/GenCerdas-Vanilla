@@ -296,6 +296,7 @@ p {
     
     .footer-content {
         flex-direction: column;
+        align-items: start;
         gap: 2rem;
     }
 }
@@ -733,6 +734,9 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
     gap: 3rem;
 }
 
