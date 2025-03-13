@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - GenCerdas</title>
+    <link rel="stylesheet" href="../Styles/profile.css">
+    <link rel="stylesheet" href="../Styles/sidebar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn">
+            <i class='bx bx-chevron-right' id="sidebarIcon"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="profile.html" class="active" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="course.html" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="podcast.html" data-text="Podcast"><i class="fas fa-podcast"></i></a></li>
+                <li><a href="upload.html" data-text="Document"><i class="fas fa-file"></i></a></li>
+                <li><a href="achievements.html" data-text="Achievements"><i class="fas fa-trophy"></i></a></li>
+                <li><a href="beasiswa.html" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header Card -->
+        <div class="header-card">
+            <div class="header-content">
+                <div class="user-info">
+                    <h1>Gon Teacher! <span class="level-badge">Level 15</span></h1>
+                    <p><i class="fas fa-fire"></i> 7 Day Streak</p>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="handleOpenClass()">
+                        <i class="fas fa-play"></i> Start Learning
+                    </button>
+                    <button class="btn btn-secondary" onclick="handleDailyTarget()">
+                        <i class="fas fa-bullseye"></i> Daily Target
+                    </button>
+                    <button class="btn btn-outline" onclick="handleLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+            <img src="../Assets/mascot.png" alt="Mascot" class="mascot">
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stats-card">
+                <div>
+                    <p class="stats-title">Total XP</p>
+                    <h3 class="stats-value">12,500</h3>
+                    <p class="stats-change positive">
+                        <i class="fas fa-arrow-up"></i> +1,200 this week
+                    </p>
+                </div>
+                <div class="stats-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="stats-card">
+                <div>
+                    <p class="stats-title">Courses Completed</p>
+                    <h3 class="stats-value">8</h3>
+                    <p class="stats-change positive">
+                        <i class="fas fa-arrow-up"></i> +2 this month
+                    </p>
+                </div>
+                <div class="stats-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+            <div class="stats-card">
+                <div>
+                    <p class="stats-title">Achievements</p>
+                    <h3 class="stats-value">15</h3>
+                    <p class="stats-change positive">
+                        <i class="fas fa-arrow-up"></i> +3 new
+                    </p>
+                </div>
+                <div class="stats-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid Container -->
+        <div class="grid-container">
+            <!-- Achievements Card -->
+            <div class="achievements-card">
+                <div class="card-header">
+                    <div class="header-title">
+                        <i class="fas fa-trophy"></i>
+                        <h2>Recent Achievements</h2>
+                    </div>
+                    <button class="view-all">
+                        View All <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div id="achievementsGrid" class="achievements-grid">
+                    <!-- Achievements will be loaded here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Activity Card -->
+            <div class="activity-card">
+                <div class="card-header">
+                    <div class="header-title">
+                        <i class="fas fa-clock"></i>
+                        <h2>Recent Activity</h2>
+                    </div>
+                    <button class="view-all">
+                        View All <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div id="activityTimeline" class="activity-timeline">
+                    <!-- Activities will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Card -->
+        <div class="progress-card">
+            <div class="card-header">
+                <div class="header-title">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Learning Progress</h2>
+                </div>
+            </div>
+            <div class="progress-content">
+                <div class="progress-left">
+                    <div class="progress-circle">
+                        <svg width="160" height="160" viewBox="0 0 100 100">
+                            <circle class="progress-circle-bg" cx="50" cy="50" r="45"/>
+                            <circle class="progress-circle-value" cx="50" cy="50" r="45"/>
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#FF9800"/>
+                                    <stop offset="100%" stop-color="#FF5722"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="progress-percentage">75%</div>
+                    </div>
+                </div>
+                <div class="progress-right">
+                    <h3>Completed Courses</h3>
+                    <div id="completedCourses" class="completed-courses">
+                        <!-- Completed courses will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../Js/profile.js"></script>
+</body>
+</html> 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GenCerdas</title>
+    <title>GenCerdas - Courses</title>
     <link rel="stylesheet" href="../Styles/course.css" />
     <link rel="stylesheet" href="../Styles/sidebar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -20,63 +20,92 @@
         <nav>
             <ul>
                 <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
-                <li><a href="#" data-text="Profile"><i class="fas fa-user"></i></a></li>
-                <li><a href="#" class="active" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
-                <li><a href="#" data-text="Podcast"><i class="fas fa-book"></i></a></li>
+                <li><a href="profile.html" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="course.html" class="active" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="podcast.html" data-text="Podcast"><i class="fas fa-podcast"></i></a></li>
                 <li><a href="upload.html" data-text="Document"><i class="fas fa-file"></i></a></li>
-                <li><a href="#" data-text="Achievements"><i class="fas fa-star"></i></a></li>
+                <li><a href="achievements.html" data-text="Achievements"><i class="fas fa-star"></i></a></li>
                 <li><a href="beasiswa.html" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
             </ul>
         </nav>
     </div>
     
-    <section class="utama">
-        <div class="wrap-header custom-text">
+    <main class="main-content">
+        <div class="wrap-header">
             <h1>Kursus Beasiswa</h1>
             <p>Pilih kursus sesuai kebutuhan persiapan beasiswa Anda</p>
         </div>
-        <div class="container">
-            <span class="icon">📄</span>
-            <h2 class="title">Persiapan Dokumen Dasar</h2>
-            <div class="line"></div>
-        </div>
-        <div class="card-container" id="card-container"></div>
 
-        <div class="container">
-            <span class="icon">GB</span>
-            <h2 class="title">Persiapan Bahasa Inggris</h2>
-            <div class="line"></div>
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">📄</span>
+                <h2 class="title">Persiapan Dokumen Dasar</h2>
+                <div class="line"></div>
+            </div>
+            <div class="card-container" id="card-container"></div>
         </div>
-        <div class="card-container" id="course-list"></div>
 
-        <div class="container">
-            <span class="icon">JP</span>
-            <h2 class="title">Persiapan Bahasa Jepang</h2>
-            <div class="line"></div>
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">GB</span>
+                <h2 class="title">Persiapan Bahasa Inggris</h2>
+                <div class="line"></div>
+            </div>
+            <div class="card-container" id="course-list"></div>
         </div>
-        <div class="card-container" id="jepang-list"></div>
 
-        <div class="container">
-            <span class="icon">CN</span>
-            <h2 class="title">Persiapan Bahasa Mandarin</h2>
-            <div class="line"></div>
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">JP</span>
+                <h2 class="title">Persiapan Bahasa Jepang</h2>
+                <div class="line"></div>
+            </div>
+            <div class="card-container" id="jepang-list"></div>
         </div>
-        <div class="card-container" id="china-list"></div>
 
-        <div class="container">
-            <span class="icon">KR</span>
-            <h2 class="title">Persiapan Bahasa Korea</h2>
-            <div class="line"></div>
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">CN</span>
+                <h2 class="title">Persiapan Bahasa Mandarin</h2>
+                <div class="line"></div>
+            </div>
+            <div class="card-container" id="china-list"></div>
         </div>
-        <div class="card-container" id="korea-list"></div>
 
-        <div class="container">
-            <span class="icon">🌐</span>
-            <h2 class="title">Pengembangan Jaringan</h2>
-            <div class="line"></div>
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">KR</span>
+                <h2 class="title">Persiapan Bahasa Korea</h2>
+                <div class="line"></div>
+            </div>
+            <div class="card-container" id="korea-list"></div>
         </div>
-        <div class="card-container" id="jaringan-list"></div>
-    </section>
+
+        <div class="section">
+            <div class="section-header">
+                <span class="icon">🌐</span>
+                <h2 class="title">Pengembangan Jaringan</h2>
+                <div class="line"></div>
+            </div>
+            <div class="card-container" id="jaringan-list"></div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const toggleBtn = document.getElementById('toggleSidebar');
+            const sidebarIcon = document.getElementById('sidebarIcon');
+
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('expanded');
+                mainContent.classList.toggle('sidebar-expanded');
+                sidebarIcon.classList.toggle('bx-chevron-left');
+                sidebarIcon.classList.toggle('bx-chevron-right');
+            });
+        });
+    </script>
     <script src="../Js/course.js"></script>
 </body>
 </html>

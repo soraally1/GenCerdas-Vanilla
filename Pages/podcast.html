@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast - GenCerdas</title>
+    <link rel="stylesheet" href="../Styles/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #FFA726;
+            --secondary-orange: #FF9800;
+            --card-orange: #FF7043;
+            --hover-orange: #FF8A65;
+            --icon-color: rgba(255, 167, 38, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-left: calc(70px + 1rem); /* Adjust margin for sidebar */
+            transition: margin-left 0.3s ease;
+        }
+
+        /* When sidebar is expanded */
+        .container.sidebar-expanded {
+            margin-left: calc(240px + 1rem);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+                padding-bottom: calc(0.5rem + 85px);
+            }
+
+            .container {
+                margin-left: 0;
+                padding: 0.5rem;
+            }
+
+            .container.sidebar-expanded {
+                margin-left: 0;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .categories-section h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .all-podcasts-card {
+                padding: 1rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.25rem;
+            }
+
+            .play-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .category-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .category-card {
+                padding: 1rem;
+            }
+
+            .podcasts-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .podcast-card {
+                margin: 0;
+            }
+
+            .podcast-content {
+                padding: 1rem;
+            }
+
+            .podcast-title {
+                font-size: 1.125rem;
+            }
+
+            .podcast-description {
+                font-size: 0.813rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .podcast-meta {
+                font-size: 0.75rem;
+            }
+
+            .h3{
+                color: white;
+            }
+        }
+
+        /* Safe area padding for modern mobile devices */
+        @supports (padding: max(0px)) {
+            @media (max-width: 768px) {
+                body {
+                    padding-bottom: calc(0.5rem + 85px + env(safe-area-inset-bottom));
+                }
+            }
+        }
+
+        .header {
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .categories-section {
+            margin-bottom: 3rem;
+        }
+
+        .categories-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .all-podcasts-card {
+            background: var(--card-orange);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .all-podcasts-card:hover {
+            background: var(--hover-orange);
+        }
+
+        .all-podcasts-card.selected {
+            box-shadow: 0 0 0 4px white;
+        }
+
+        .card-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-content h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .play-icon {
+            width: 3rem;
+            height: 3rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--icon-color);
+        }
+
+        .all-podcasts-card:hover .play-icon,
+        .category-card:hover .play-icon {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .all-podcasts-card.selected,
+        .category-card.selected {
+            background: var(--hover-orange);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .all-podcasts-card.selected .play-icon,
+        .category-card.selected .play-icon {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .category-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .category-card {
+            background: var(--card-orange);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 167, 38, 0.2), rgba(255, 87, 34, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover::before,
+        .category-card.selected::before {
+            opacity: 1;
+        }
+
+        .podcasts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .podcast-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .podcast-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .podcast-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .podcast-card:hover .podcast-image {
+            transform: scale(1.1);
+        }
+
+        .podcast-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5), transparent);
+        }
+
+        .podcast-title {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .podcast-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .podcast-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        .loading {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .error {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .podcast-card[style*="display: none"] {
+            animation: fadeOut 0.3s ease forwards;
+        }
+
+        .podcast-card[style*="display: block"] {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        #podcast-section-title {
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #podcast-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-orange), var(--secondary-orange));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        #podcast-section-title:not(:empty)::after {
+            transform: scaleX(1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Add Sidebar -->
+    <div class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn">
+            <i class='bx bx-chevron-right' id="sidebarIcon"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="profile.html" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="course.html" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="podcast.html" class="active" data-text="Podcast"><i class="fas fa-podcast"></i></a></li>
+                <li><a href="upload.html" data-text="Document"><i class="fas fa-file"></i></a></li>
+                <li><a href="#" data-text="Achievements"><i class="fas fa-star"></i></a></li>
+                <li><a href="beasiswa.html" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Podcast</h1>
+        </div>
+
+        <div class="categories-section">
+            <h2>Kategori</h2>
+            <div class="categories-grid">
+                <div class="all-podcasts-card" onclick="selectCategory(null)">
+                    <div class="card-content">
+                        <div>
+                            <h3>All Podcast</h3>
+                            <p>Lihat semua podcast yang tersedia</p>
+                        </div>
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-cards">
+                    <div class="category-card" data-category="1" onclick="selectCategory('1')">
+                        <div class="card-content">
+                            <div>
+                                <h3>TOEFL</h3>
+                                <p>Persiapan tes TOEFL</p>
+                            </div>
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2">
+                                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="2" onclick="selectCategory('2')">
+                        <div class="card-content">
+                            <div>
+                                <h3>Wawancara Beasiswa</h3>
+                                <p>Tips interview beasiswa</p>
+                            </div>
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2">
+                                    <path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="3" onclick="selectCategory('3')">
+                        <div class="card-content">
+                            <div>
+                                <h3>Strategi Beasiswa</h3>
+                                <p>Panduan meraih beasiswa</p>
+                            </div>
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2">
+                                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="4" onclick="selectCategory('4')">
+                        <div class="card-content">
+                            <div>
+                                <h3>Pembelajaran Bahasa</h3>
+                                <p>Tingkatkan kemampuan bahasa</p>
+                            </div>
+                            <div class="play-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.9)" stroke-width="2">
+                                    <path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="podcasts-section">
+            <h2 id="podcast-section-title">All Podcasts</h2>
+            <div class="podcasts-grid">
+                <div class="podcast-card" data-category="1" onclick="window.location.href='podcastdetail.html?id=1'">
+                    <img src="../Assets/Podcast/podcast (1).png" alt="Basic TOEFL" class="podcast-image" onerror="this.src='../Assets/Podcast/default.jpg'">
+                    <div class="podcast-content">
+                        <h3 class="podcast-title">Basic TOEFL</h3>
+                        <p class="podcast-description">Persiapan dasar untuk TOEFL</p>
+                        <div class="podcast-meta">
+                            <span>45 min</span>
+                            <span>1.5k views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="podcast-card" data-category="2" onclick="window.location.href='podcastdetail.html?id=2'">
+                    <img src="../Assets/Podcast/podcast (2).png" alt="Wawancara Beasiswa" class="podcast-image" onerror="this.src='../Assets/Podcast/default.jpg'">
+                    <div class="podcast-content">
+                        <h3 class="podcast-title">Wawancara Beasiswa Tips</h3>
+                        <p class="podcast-description">Tips dan trik menghadapi wawancara beasiswa</p>
+                        <div class="podcast-meta">
+                            <span>35 min</span>
+                            <span>2.1k views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="podcast-card" data-category="3" onclick="window.location.href='podcastdetail.html?id=3'">
+                    <img src="../Assets/Podcast/podcast (3).png" alt="Strategi Beasiswa" class="podcast-image" onerror="this.src='../Assets/Podcast/default.jpg'">
+                    <div class="podcast-content">
+                        <h3 class="podcast-title">Strategi Mendapatkan Beasiswa</h3>
+                        <p class="podcast-description">Panduan lengkap meraih beasiswa impian</p>
+                        <div class="podcast-meta">
+                            <span>50 min</span>
+                            <span>3k views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="podcast-card" data-category="4" onclick="window.location.href='podcastdetail.html?id=4'">
+                    <img src="../Assets/Podcast/podcast (4).png" alt="JLPT N5" class="podcast-image" onerror="this.src='../Assets/Podcast/default.jpg'">
+                    <div class="podcast-content">
+                        <h3 class="podcast-title">JLPT N5</h3>
+                        <p class="podcast-description">Panduan lengkap untuk persiapan ujian JLPT N5</p>
+                        <div class="podcast-meta">
+                            <span>40 min</span>
+                            <span>1.8k views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="podcast-card" data-category="4" onclick="window.location.href='podcastdetail.html?id=5'">
+                    <img src="../Assets/Podcast/podcast (5).png" alt="Public Speaking" class="podcast-image" onerror="this.src='../Assets/Podcast/default.jpg'">
+                    <div class="podcast-content">
+                        <h3 class="podcast-title">Public Speaking</h3>
+                        <p class="podcast-description">Teknik public speaking yang efektif</p>
+                        <div class="podcast-meta">
+                            <span>55 min</span>
+                            <span>2.5k views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Sidebar Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const container = document.querySelector('.container');
+            const toggleBtn = document.getElementById('toggleSidebar');
+            const sidebarIcon = document.getElementById('sidebarIcon');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const podcastCards = document.querySelectorAll('.podcast-card');
+            const podcastSectionTitle = document.getElementById('podcast-section-title');
+
+            // Sidebar toggle functionality
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('expanded');
+                container.classList.toggle('sidebar-expanded');
+                sidebarIcon.classList.toggle('bx-chevron-left');
+                sidebarIcon.classList.toggle('bx-chevron-right');
+            });
+
+            // Category selection functionality
+            function selectCategory(categoryId) {
+                // Remove active class from all category cards
+                document.querySelectorAll('.category-card, .all-podcasts-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+
+                // Add active class to selected category
+                if (categoryId === null) {
+                    document.querySelector('.all-podcasts-card').classList.add('selected');
+                    podcastSectionTitle.textContent = 'All Podcasts';
+                    // Show all podcasts
+                    podcastCards.forEach(card => card.style.display = 'block');
+                } else {
+                    document.querySelector(`.category-card[data-category="${categoryId}"]`).classList.add('selected');
+                    const categoryTitle = document.querySelector(`.category-card[data-category="${categoryId}"] h3`).textContent;
+                    podcastSectionTitle.textContent = categoryTitle;
+                    // Filter podcasts
+                    podcastCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        card.style.display = cardCategory === categoryId ? 'block' : 'none';
+                    });
+                }
+            }
+
+            // Add click event listeners to category cards
+            document.querySelector('.all-podcasts-card').addEventListener('click', () => selectCategory(null));
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', () => selectCategory(card.getAttribute('data-category')));
+            });
+
+            // Initialize with all podcasts shown
+            selectCategory(null);
+        });
+    </script>
+</body>
+</html> 

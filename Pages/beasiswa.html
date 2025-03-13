@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GenCerdas</title>
+    <title>Beasiswa - GenCerdas</title>
     <!-- <link rel="stylesheet" href="../Styles/course.css" /> -->
     <link rel="stylesheet" href="../Styles/sidebar.css" />
     <link rel="stylesheet" href="../Styles/beasiswa.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
@@ -21,56 +21,226 @@
         <nav>
             <ul>
                 <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
-                <li><a href="#" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="profile.html" data-text="Profile"><i class="fas fa-user"></i></a></li>
                 <li><a href="course.html" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
-                <li><a href="#" data-text="Podcast"><i class="fas fa-book"></i></a></li>
+                <li><a href="podcast.html" data-text="Podcast"><i class="fas fa-podcast"></i></a></li>
                 <li><a href="upload.html" data-text="Document"><i class="fas fa-file"></i></a></li>
-                <li><a href="#" data-text="Achievements"><i class="fas fa-star"></i></a></li>
+                <li><a href="achievements.html" data-text="Achievements"><i class="fas fa-trophy"></i></a></li>
                 <li><a href="beasiswa.html" class="active" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
             </ul>
         </nav>
     </div>
     
-    <section class="utama">
-        <div class="container-h1">
-          <h1 class="section-title">Available Scholarships</h1>
-          <div class="card-container">
-            <div class="card">
-              <img src="../Assets/MEXT.png" alt="MEXT Scholarship" />
-              <div class="info">
-                <h3>Beasiswa MEXT 2024</h3>
-                <p>Pemerintah Jepangu</p>
-                <p>Program beasiswa dari pemerintah Jepang untuk mahasiswa internasional yang ingin melanjutkan studi S1/S2/S3 di Jepang dengan tanggungan biaya penuh dan tunjangan hidup.</p>
-                <p>Value: Biaya kuliah penuh + ¥117.000-¥147.000 per bulan</p>
-                <p>Deadline: Invalid Date</p>
-                <button class="button-card">Apply Now</button>
-              </div>
+    <div class="main-content">
+        <div class="header-section">
+            <h1>Available Scholarships</h1>
+            <p>Discover and apply for scholarships that match your profile</p>
+            
+            <div class="search-filter-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search scholarships...">
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">International</button>
+                    <button class="filter-btn">National</button>
+                    <button class="filter-btn">University</button>
+                </div>
             </div>
-            <div class="card">
-              <img src="../Assets/LPDP.png" alt="Beasiswa LPDP" />
-              <div class="info">
-                <h3>Beasiswa LPDP 2024</h3>
-                <p>Pemerintah Indonesia</p>
-                <p>Beasiswa prestisius dari pemerintah untuk warga negara Indonesia yang ingin melanjutkan studi S2 atau S3 baik di dalam maupun luar negeri.</p>
-                <p>Value: Pendanaan penuh hingga $50.000/tahun</p>
-                <p>Deadline: 4/30/2024</p>
-                <button class="button-card">Apply Now</button>
-              </div>
-            </div>
-            <div class="card">
-              <img src="../Assets/BI.png" alt="Beasiswa Bank Indonesia" />
-              <div class="info">
-                <h3>Beasiswa Bank Indonesia 2024</h3>
-                <p>Bank Indonesia</p>
-                <p>Program beasiswa bergengsi dari Bank Indonesia untuk mahasiswa berprestasi di bidang ekonomi, perbankan, dan keuangan</p>
-                <p>Value: Biaya kuliah penuh + tunjangan bulanan</p>
-                <p>Deadline: 4/15/2024</p>
-                <button class="button-card">Apply Now</button>
-              </div>
-            </div>
-          </div>
         </div>
-    </section>
-    <script src="../Js/beasiswa.js"></script>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>15+</h3>
+                    <p>Countries</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>50+</h3>
+                    <p>Universities</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>1000+</h3>
+                    <p>Students</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>25+</h3>
+                    <p>Programs</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="scholarship-grid">
+            <div class="scholarship-card">
+                <div class="card-header">
+                    <img src="../Assets/MEXT.png" alt="MEXT Scholarship" />
+                    <div class="card-badge">Featured</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">
+                        <h3>MEXT Scholarship 2024</h3>
+                        <span class="country"><i class="fas fa-map-marker-alt"></i> Japan</span>
+                    </div>
+                    <div class="card-provider">
+                        <img src="../Assets/G-Gon.png" alt="MEXT" class="provider-logo" />
+                        <span>Japanese Government</span>
+                    </div>
+                    <p class="card-description">Full scholarship program from the Japanese Government for international students pursuing undergraduate or graduate studies in Japan.</p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>¥117,000 - ¥147,000/month</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Deadline: May 30, 2024</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 4-5 years</span>
+                        </div>
+                    </div>
+                    <div class="card-tags">
+                        <span class="tag">Full Scholarship</span>
+                        <span class="tag">International</span>
+                        <span class="tag">Graduate</span>
+                    </div>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-header">
+                    <img src="../Assets/LPDP.png" alt="LPDP Scholarship" />
+                    <div class="card-badge">Popular</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">
+                        <h3>LPDP Scholarship 2024</h3>
+                        <span class="country"><i class="fas fa-map-marker-alt"></i> Indonesia</span>
+                    </div>
+                    <div class="card-provider">
+                        <img src="../Assets/G-Gon.png" alt="LPDP" class="provider-logo" />
+                        <span>Indonesian Government</span>
+                    </div>
+                    <p class="card-description">Prestigious scholarship program for Indonesian citizens pursuing master's or doctoral degrees domestically or internationally.</p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Up to $50,000/year</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Deadline: April 30, 2024</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 2-4 years</span>
+                        </div>
+                    </div>
+                    <div class="card-tags">
+                        <span class="tag">Full Funding</span>
+                        <span class="tag">National</span>
+                        <span class="tag">Postgraduate</span>
+                    </div>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+            </div>
+
+            <div class="scholarship-card">
+                <div class="card-header">
+                    <img src="../Assets/BI.png" alt="Bank Indonesia Scholarship" />
+                    <div class="card-badge">New</div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">
+                        <h3>Bank Indonesia Scholarship 2024</h3>
+                        <span class="country"><i class="fas fa-map-marker-alt"></i> Indonesia</span>
+                    </div>
+                    <div class="card-provider">
+                        <img src="../Assets/G-Gon.png" alt="Bank Indonesia" class="provider-logo" />
+                        <span>Bank Indonesia</span>
+                    </div>
+                    <p class="card-description">Excellence scholarship program for students in economics, banking, and finance fields with comprehensive benefits.</p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Full tuition + monthly allowance</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Deadline: April 15, 2024</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Duration: 2 years</span>
+                        </div>
+                    </div>
+                    <div class="card-tags">
+                        <span class="tag">Full Support</span>
+                        <span class="tag">Economics</span>
+                        <span class="tag">Banking</span>
+                    </div>
+                    <button class="apply-btn">Apply Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Get notifications about new scholarships and deadlines</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const toggleBtn = document.getElementById('toggleSidebar');
+            const sidebarIcon = document.getElementById('sidebarIcon');
+
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('expanded');
+                mainContent.classList.toggle('sidebar-expanded');
+                sidebarIcon.classList.toggle('bx-chevron-left');
+                sidebarIcon.classList.toggle('bx-chevron-right');
+            });
+
+            // Filter buttons functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

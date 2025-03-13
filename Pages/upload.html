@@ -3,98 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Dokumen</title>
+    <title>Upload Dokumen - GenCerdas</title>
     <link rel="stylesheet" href="../Styles/upload.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Styles/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Upload Dokumen</h1>
-    <div class="progress-bar">
-        <div class="progress-fill"></div>
-    </div>
-
-    <div class="container">
-        <div class="upload-card">
-            <div class="icon-container">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwLDIwSDBWMTZIMjBNNC45MywxMC43QzQuODYsMTAuNDEgNC44LDEwLjEzIDQuOCw5LjgyQzQuOCw3LjA3IDcuMDcsNC44IDkuODIsNC44QzExLjk1LDQuOCAxMy44Myw2LjE5IDE0LjUsOC4wNkE0LjI4LDQuMjggMCAwLDEgMTkuMiwxMC44QTQuMjgsNC4yOCAwIDAsMSAxNSwxNUg2QTQsNCAwIDAsMSAyLDExQTQsNCAwIDAsMSA0LjkzLDEwLjdNMTIsMTEuNTlWOEg4VjExLjU5TDkuNzEsOS44OEwxMS40OSwxMS42NkwxMy4yMSwxMy4zN0wxNSwxMS41OUwxMi4wMSw4LjU5IiAvPjwvc3ZnPg==" class="icon" alt="ID Card">
-            </div>
-            <h3>Upload dokumen</h3>
-            <h2>Kartu Keluarga</h2>
-            <label for="file1" class="upload-btn">
-                <i class="fas fa-upload"></i> Upload
-            </label>
-            <input type="file" id="file1" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
-        </div>
-
-        <div class="upload-card">
-            <div class="icon-container">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDVBMSwxIDAgMCAxIDEzLDZIOEMzLjU4LDYgMCw5LjU4IDAsOFYxNkMwLDE0LjggMSw3IDEsN0ExLDEgMCAwLDEgMiw2SDdDNy43NSw0LjcgOC45OCw0IDEwLjUsNEMxMS44MSw0IDEyLjk0LDQuNSAxMy43NSw1LjA1QTMuOTgsMyA5OCAwIDAsMSAxMiw1TTE4LDlINkMzLDkgLDAsMTguNSAwLDIySDI0QzI0LDE4LjUgMjEsOSAxOCw5WiIgLz48L3N2Zz4=" class="icon" alt="Birth Certificate">
-            </div>
-            <h3>Upload dokumen</h3>
-            <h2>Akta Kelahiran</h2>
-            <label for="file2" class="upload-btn">
-                <i class="fas fa-upload"></i> Upload
-            </label>
-            <input type="file" id="file2" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
-        </div>
-
-        <div class="upload-card">
-            <div class="icon-container">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwLDIwSDBWMTZIMjBNNCwxMVY4SDBWMTFNMjQsOFYxMUgyMFY4TTE3LDE1QTE1LDE1IDAgMCwwIDIuNDEsNS42TDQuMTMsNy4zOUMzLjQ2LDguMjQgMyw5LjczIDMsMTF2MWgxMUExNSwxNSAwIDAsMSAxNi4yLDguNUE1LDUgMCAwLDAgMTUsOEg4LjNMMTAuNTMsNS44TDkuMTIsNC40TDQuNywyLjQ2TDMuMjksNS4yOUwyLjQxLDUuNlY1LjYzSDIuNDJNMTUuNSw5QTE1LDE1IDAgMCwxIDE0LDEySDE3QzE3LDEwLjkzIDE2LjQsOS45MSAxNS41LDkiIC8+PC9zdmc+" class="icon" alt="Diploma">
-            </div>
-            <h3>Upload dokumen</h3>
-            <h2>Ijazah</h2>
-            <label for="file3" class="upload-btn">
-                <i class="fas fa-upload"></i> Upload
-            </label>
-            <input type="file" id="file3" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
-        </div>
-
-        <div class="upload-card">
-            <div class="icon-container">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE4IDJDMTcuMSAyIDE2LjUgMy4wNCAxNyAzLjdMMTUuMiA1LjVDMTQuNCA0Ljk1IDEzLjUgNC43IDEyLjUgNC43QzEwLjMzIDQuNjcgOC40MiA1LjgxIDcuNSA3LjVMNS44MyA2LjE3QzYuNTggNS4yNSA3LjVgNC42NyA4LjVgNC42N0M4Ljg4IDQuNjcgOC4yMiA0Ljc2IDkuNSA0Ljk1TDguMzYgM0M5LjA3IDIuMjUgMTAuMDkgMi40MiA5Ljc4IDMuM0w5LjI4IDMuOEMxMCA3LjUgMTAuOCA3LjI4IDExLjc1IDNMMTMuMDYgNC4zNEMxMy4xNyA0LjQyIDEzLjI1IDQgMTMuMjggMy41OUMxNS41NyAzLjggMTcuMTEgNC4yNSAxOCA0LjVDMTggNC45NSAxOC41IDUuMzMgMTkgNS41QzE5LjQgNS42NyAyMCA1LjgzIDIwIDYuNUMyMCA3IDIwIDcuNSAxOSA4LjVDMTggOS41IDE3IDEwIDE2IDEwLjVDMTUuMjUgMTAuODggMTMuODcgMTEuMDYgMTIgMTFDMTEuODcgMTEuMzMgMTEuNzUgMTEuNjcgMTEuNjcgMTJDMTEuNjcgMTIuMTcgMTEuNyAxMi4zMyAxMS43NSAxMi41QzExLjg3IDEyLjc4IDEyLjE3IDEzLjA4IDEyLjU4IDEzLjVDMTMuMjUgMTQuMTcgMTQgMTQuOTIgMTQuMTcgMTYuMDlDMTQuMzMgMTcuNTYgMTQgMTguNzUgMTMuMzMgMTkuNTlDMTIuNzUgMjAuMyAxMi4xNyAyMC42NyAxMS41IDIwLjc5QzEwLjgzIDIwLjk1IDEwLjEzIDIwLjg1IDkuNjcgMjAuNzVDOS4xMiAyMC42MyA4LjYgMjAuMjUgOC4zMyAxOS44NEMxMCAxOC45NSAxMC44NSAxOC4wNCAxMS4xNyAxNy4xN0MxMS41IDE2LjMzIDExLjM3IDE1LjMzIDEwLjUgMTQuNjdDMTAgMTQuMzMgOS41IDE0LjIgOS4wNSAxNEM4Ljk3IDE0IDE2LjI1IDEzLjk1IDEzLjc1IDEzLjk1QzEzIDEzLjk1IDEyLjQyIDE0IDE0IDE0QzEzLjc1IDE0LjUgMTMuMzMgMTUgMTMgMTUuMzNDMTIuNjcgMTUuNjcgMTIuMjUgMTYgMTIuMzMgMTYuNUMxMi40MyAxNi45MiAxMi45IDE3LjMzIDEzLjQ1IDE3LjY1QzEzLjI1IDE4LjA4IDEzIDE4LjMzIDEyLjU4IDE4LjVDMTIuMjUgMTguNzUgMTEuODMgMTguOTIgMTEuNCAxOS4wOEMxMC44IDE5LjMzIDEwLjIxIDE5LjI5IDkuODMgMTkuMTJDOS41IDE5IDkuMiAxOC43NSA5IDE4LjVDOC44MyAxOC4yNSA4LjY3IDE4IDguNjIgMTcuNzVDOC41NSAxNy41IDguNSAxNy4yNSA4LjUgMTcgMTEgMTcgMTMgMTcgMTEuNSAxN0MxMS43IDE2LjkgMTEuOSAxNi44MyAxMi4xIDE2Ljc1QzEyLjMgMTYuNjIgMTIuNDkgMTYuNSAxMi42OSAxNi4zOEMxMyAxNi4yNSAxMy4yMiAxNiAxMy4yNSAxNS42MkMxMy4yNSAxNS4yNSAxMyAxNSAxMi43NSAxNC43NUMxMi41IDE0LjUgMTIuMTggMTQuMjUgMTEuNzUgMTRDMTEuNDIgMTMuODMgMTEuMDUgMTMuNjcgMTAuNjYgMTMuNUM3LjE1IDEzLjc1IDguNjIgMTQuMzMgOCAyMC43NUw0IDIxLjA5VjVMNi41IDdINlY3LjIxQzcuNSA1LjEgOS41IDMuNjcgMTIuMDQgMy42N0MxMi4yMSAzLjY5IDEyLjM3IDMuNjkgMTIuNSAzLjdNOSAzLjgzTDkuMzMgNEw4LjQgNC41TDcuNSA1LjM0TDcuMTcgNS41QzcuMTcgNC45MSA3LjI1IDQuNDYgNy40MSA0LjA0TDcuMzMgNC4xN0M3LjY3IDQgOCAzLjkgOC41IDMuODRMOSAzLjgzTTcuNSAxMC41QzggMTAuNSA4LjUgMTAuMDcgOC41IDkuNUM4LjUgOSA4IDguNSA3LjUgOC41QzcgOC41IDYuNSA5IDYuNSA5LjVDNi41IDEwLjA3IDcgMTAuNSA3LjUgMTAuNVoiIC8+PC9zdmc+" class="icon" alt="Trophy">
-            </div>
-            <h3>Upload dokumen</h3>
-            <h2>Piagam</h2>
-            <label for="file4" class="upload-btn">
-                <i class="fas fa-upload"></i> Upload
-            </label>
-            <input type="file" id="file4" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
-        </div>
-
-        <div class="upload-card kip-container">
-            <div class="icon-container">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTIwLDhoLTJWNmMwLTIuMi0xLjgtNC00LTRoLTRDNy44LDIsNiwzLjgsNiw2djIgSDRjLTEuMSwwLTIsMC45LTIsMnYxMGMwLDEuMSwwLjksMiwsMiwySFYwYzAsMS4xLDAuOSwyLDIsMmgxNGMwLDAsMS4xLDAuOSwxLjEsMlYyME0xOCw4SDZWNmMwLTEuMSwwLjktMiwyLTJoOGMxLjEsMCwyLDAuOSwyLDJWOE0xNy44LDE0aC04djJoOFYxNG0wLDRoLTh2Mmg4di0yTSYxMiwtSFYxMGgy76IyIDI6IC8+PC9zdmc+" class="icon" alt="Credit Card">
-            </div>
-            <h3>Upload dokumen</h3>
-            <h2>KIP</h2>
-            <label for="file5" class="upload-btn">
-                <i class="fas fa-upload"></i> Upload
-            </label>
-            <input type="file" id="file5" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
-        </div>
-    </div>
-    
-    <div class="toast">
-        <i class="fas fa-check-circle"></i>
-        <span>Dokumen berhasil diupload!</span>
-    </div>
-    
-    
-    <div class="alert-box">
-        <div class="alert-header">
-            <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Warning">
-            <span>Perhatian!</span>
-        </div>
-        <div class="alert-text">
-            Jika tidak memiliki KIP atau piagam bisa diskip terlebih dahulu ya teman-teman
-        </div>
-        <button class="alert-button">
-            <img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Send">
-            Kirim
+    <div class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn">
+            <i class='bx bx-chevron-right' id="sidebarIcon"></i>
         </button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="profile.html" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="course.html" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="podcast.html" data-text="Podcast"><i class="fas fa-podcast"></i></a></li>
+                <li><a href="upload.html" class="active" data-text="Document"><i class="fas fa-file"></i></a></li>
+                <li><a href="achievements.html" data-text="Achievements"><i class="fas fa-star"></i></a></li>
+                <li><a href="beasiswa.html" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
+            </ul>
+        </nav>
     </div>
-    <script src="../Js/upload.js">
+
+    <div class="main-content">
+        <div class="upload-header">
+            <div class="header-content">
+                <h1>Upload Dokumen</h1>
+                <p>Upload dokumen yang diperlukan untuk melengkapi persyaratan beasiswa</p>
+            </div>
+            <div class="upload-progress">
+                <div class="progress-info">
+                    <span>Progress Upload</span>
+                    <span class="percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="upload-cards">
+            <div class="upload-card" data-type="kk">
+                <div class="upload-card-header">
+                    <div class="upload-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="upload-title">
+                        <h3>Kartu Keluarga</h3>
+                        <p>Upload scan Kartu Keluarga dalam format PDF/JPG</p>
+                    </div>
+                </div>
+                <div class="dropzone" id="dropzone-kk">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop file atau browse</p>
+                    <input type="file" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <div class="file-list" id="file-list-kk"></div>
+            </div>
+
+            <div class="upload-card" data-type="akta">
+                <div class="upload-card-header">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="upload-title">
+                        <h3>Akta Kelahiran</h3>
+                        <p>Upload scan Akta Kelahiran dalam format PDF/JPG</p>
+                    </div>
+                </div>
+                <div class="dropzone" id="dropzone-akta">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop file atau browse</p>
+                    <input type="file" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <div class="file-list" id="file-list-akta"></div>
+            </div>
+
+            <div class="upload-card" data-type="ijazah">
+                <div class="upload-card-header">
+                    <div class="upload-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="upload-title">
+                        <h3>Ijazah</h3>
+                        <p>Upload scan Ijazah dalam format PDF/JPG</p>
+                    </div>
+                </div>
+                <div class="dropzone" id="dropzone-ijazah">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop file atau browse</p>
+                    <input type="file" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <div class="file-list" id="file-list-ijazah"></div>
+            </div>
+
+            <div class="upload-card" data-type="piagam">
+                <div class="upload-card-header">
+                    <div class="upload-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="upload-title">
+                        <h3>Piagam</h3>
+                        <p>Upload scan Piagam/Sertifikat dalam format PDF/JPG</p>
+                    </div>
+                </div>
+                <div class="dropzone" id="dropzone-piagam">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop file atau browse</p>
+                    <input type="file" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <div class="file-list" id="file-list-piagam"></div>
+            </div>
+
+            <div class="upload-card" data-type="kip">
+                <div class="upload-card-header">
+                    <div class="upload-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="upload-title">
+                        <h3>KIP</h3>
+                        <p>Upload scan KIP dalam format PDF/JPG (Opsional)</p>
+                    </div>
+                </div>
+                <div class="dropzone" id="dropzone-kip">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop file atau browse</p>
+                    <input type="file" class="file-input" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+                <div class="file-list" id="file-list-kip"></div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="info-content">
+                <h3>Informasi Penting</h3>
+                <ul>
+                    <li>Pastikan file yang diupload jelas dan tidak blur</li>
+                    <li>Ukuran maksimal file adalah 5MB</li>
+                    <li>Format file yang diterima: PDF, JPG, JPEG, PNG</li>
+                    <li>KIP dan Piagam bersifat opsional</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="btn-save">
+                <i class="fas fa-save"></i>
+                Simpan Progress
+            </button>
+            <button class="btn-submit">
+                <i class="fas fa-paper-plane"></i>
+                Kirim Dokumen
+            </button>
+        </div>
+
+        <div class="toast" id="toast">
+            <div class="toast-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="toast-content">
+                <p class="toast-title">Berhasil!</p>
+                <p class="toast-message">Dokumen berhasil diupload</p>
+            </div>
+            <button class="toast-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const toggleBtn = document.getElementById('toggleSidebar');
+            const sidebarIcon = document.getElementById('sidebarIcon');
+
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('expanded');
+                mainContent.classList.toggle('sidebar-expanded');
+                sidebarIcon.classList.toggle('bx-chevron-left');
+                sidebarIcon.classList.toggle('bx-chevron-right');
+            });
+
+            const dropzones = document.querySelectorAll('.dropzone');
+            dropzones.forEach(dropzone => {
+                const input = dropzone.querySelector('.file-input');
+                const fileList = dropzone.parentElement.querySelector('.file-list');
+
+                dropzone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropzone.classList.add('dragover');
+                });
+
+                dropzone.addEventListener('dragleave', () => {
+                    dropzone.classList.remove('dragover');
+                });
+
+                dropzone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    dropzone.classList.remove('dragover');
+                    const files = e.dataTransfer.files;
+                    handleFiles(files, fileList);
+                });
+
+                dropzone.addEventListener('click', () => {
+                    input.click();
+                });
+
+                input.addEventListener('change', () => {
+                    handleFiles(input.files, fileList);
+                });
+            });
+
+            function handleFiles(files, fileList) {
+                Array.from(files).forEach(file => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.innerHTML = `
+                        <div class="file-info">
+                            <i class="fas fa-file-alt"></i>
+                            <span class="file-name">${file.name}</span>
+                            <span class="file-size">${formatFileSize(file.size)}</span>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn-preview" title="Preview">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn-delete" title="Delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    `;
+                    fileList.appendChild(fileItem);
+
+                    updateProgress();
+                });
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            function updateProgress() {
+                const totalFiles = document.querySelectorAll('.file-item').length;
+                const requiredFiles = 3; // KK, Akta, Ijazah
+                const progress = Math.min((totalFiles / requiredFiles) * 100, 100);
+                document.querySelector('.progress-fill').style.width = `${progress}%`;
+                document.querySelector('.percentage').textContent = `${Math.round(progress)}%`;
+            }
+
+            const toast = document.getElementById('toast');
+            const closeToast = toast.querySelector('.toast-close');
+            closeToast.addEventListener('click', () => {
+                toast.classList.remove('show');
+            });
+        });
     </script>
 </body>
 </html>

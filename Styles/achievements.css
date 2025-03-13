@@ -1,3 +1,24 @@
+.main-content {
+    margin-left: calc(70px + 1rem);
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.main-content.sidebar-expanded {
+    margin-left: calc(240px + 1rem);
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: calc(70px + 0.5rem);
+        padding: 1rem;
+    }
+    
+    .main-content.sidebar-expanded {
+        margin-left: calc(70px + 0.5rem);
+    }
+}
 
 :root {
     --primary-color: #FF9E2C;

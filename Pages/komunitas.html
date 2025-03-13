@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Komunitas</title>
+    <title>Komunitas - GenCerdas</title>
     <link rel="stylesheet" href="../Styles/komunitas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
@@ -15,7 +16,7 @@
             <a href="index.html">Home</a>
             <a href="ggon.html">G-Gon</a>
             <a href="event.html">Event</a>
-            <a href="komunitas.html">Komunitas</a>
+            <a href="komunitas.html" class="active">Komunitas</a>
             <a href="course.html">Courses</a>
         </div>
         <div class="login-nav">
@@ -27,45 +28,109 @@
             <span class="bar"></span>
         </div>
     </nav>   
-    <div class="heading">
-        <h1>Komunitas Belajar</h1>
-        <h3>Bergabung dengan komunitas belajar, diskusi dengan teman-teman, <br> dan berbagi pengalaman bersama.</h3>
+
+    <div class="hero-section">
+        <div class="heading">
+            <h1>Komunitas Belajar</h1>
+            <h3>Bergabung dengan komunitas belajar, diskusi dengan teman-teman, <br> dan berbagi pengalaman bersama.</h3>
+        </div>
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari komunitas...">
+            </div>
+            <div class="filter-box">
+                <i class="fas fa-filter"></i>
+                <select>
+                    <option value="">Semua Kategori</option>
+                    <option value="technology">Technology</option>
+                    <option value="art">Art</option>
+                    <option value="music">Music</option>
+                    <option value="education">Education</option>
+                </select>
+            </div>
+        </div>
     </div>
 
-    <div class="search-container">
-        <input type="text" placeholder="Cari komunitas...">
-        <select>
-            <option>All</option>
-            <option>Technology</option>
-            <option>Art</option>
-            <option>Music</option>
-        </select>
+    <div class="categories">
+        <button class="category-btn active">Semua</button>
+        <button class="category-btn">Technology</button>
+        <button class="category-btn">Art</button>
+        <button class="category-btn">Music</button>
+        <button class="category-btn">Education</button>
     </div>
+
     <div class="card-container">
         <div class="card">
-            <img src="../Assets/Campusexpo.png" alt="Community Image">
+            <div class="card-image">
+                <img src="../Assets/Campusexpo.png" alt="Community Image">
+                <div class="card-overlay">
+                    <span class="member-count"><i class="fas fa-users"></i> 1000+ Members</span>
+                </div>
+            </div>
             <div class="card-content">
-                <h3>Community Title</h3>
-                <p>1000 Members</p>
-                <button>Join</button>
+                <div class="card-header">
+                    <h3>Tech Enthusiasts</h3>
+                    <span class="category-tag">Technology</span>
+                </div>
+                <p class="description">Komunitas untuk penggemar teknologi dan inovasi digital.</p>
+                <div class="card-footer">
+                    <div class="activity">
+                        <i class="fas fa-comments"></i>
+                        <span>500+ Discussions</span>
+                    </div>
+                    <button class="join-btn">Join Community</button>
+                </div>
             </div>
         </div>
+
         <div class="card">
-            <img src="../Assets/Campusexpo2.jpeg" alt="Community Image">
+            <div class="card-image">
+                <img src="../Assets/Campusexpo2.jpeg" alt="Community Image">
+                <div class="card-overlay">
+                    <span class="member-count"><i class="fas fa-users"></i> 500+ Members</span>
+                </div>
+            </div>
             <div class="card-content">
-                <h3>Community Title</h3>
-                <p>500 Members</p>
-                <button>Join</button>
+                <div class="card-header">
+                    <h3>Creative Artists</h3>
+                    <span class="category-tag">Art</span>
+                </div>
+                <p class="description">Tempat berbagi karya seni dan inspirasi kreatif.</p>
+                <div class="card-footer">
+                    <div class="activity">
+                        <i class="fas fa-comments"></i>
+                        <span>300+ Discussions</span>
+                    </div>
+                    <button class="join-btn">Join Community</button>
+                </div>
             </div>
         </div>
+
         <div class="card">
-            <img src="../Assets/Campusexpo2.jpeg" alt="Community Image">
+            <div class="card-image">
+                <img src="../Assets/Campusexpo2.jpeg" alt="Community Image">
+                <div class="card-overlay">
+                    <span class="member-count"><i class="fas fa-users"></i> 750+ Members</span>
+                </div>
+            </div>
             <div class="card-content">
-                <h3>Community Title</h3>
-                <p>750 Members</p>
-                <button>Join</button>
+                <div class="card-header">
+                    <h3>Music Lovers</h3>
+                    <span class="category-tag">Music</span>
+                </div>
+                <p class="description">Komunitas pecinta musik dan penggemar berbagai genre.</p>
+                <div class="card-footer">
+                    <div class="activity">
+                        <i class="fas fa-comments"></i>
+                        <span>400+ Discussions</span>
+                    </div>
+                    <button class="join-btn">Join Community</button>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="../Scripts/komunitas.js"></script>
 </body>
 </html>

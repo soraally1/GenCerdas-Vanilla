@@ -17,7 +17,7 @@
           <img src="../Assets/gencerdaslog.png" alt="GenCerdas Logo" />
       </div>
       <div class="nav-links">
-          <a href="index.html">Home</a>
+          <a href="index.html" class="active">Home</a>
           <a href="ggon.html">G-Gon</a>
           <a href="event.html">Event</a>
           <a href="komunitas.html">Komunitas</a>
@@ -103,42 +103,51 @@
     <!-- fitur Kami -->
     <section class="fitur">
       <h2 class="section-title">Inovasi Kami</h2>
+      <p class="section-description">Temukan berbagai fitur inovatif yang akan membantu perjalanan pendidikanmu</p>
       <div class="gridfitur">
         <div class="cardfitur">
-          <div class="icon">💬</div>
-          <h3>Chat AI</h3>
+          <div class="icon">🤖</div>
+          <h3>G-GON AI Assistant</h3>
           <p>
-            Memudahkan siswa untuk tanya jawab dengan AI yang dapat membantu
-            memberikan informasi seputar beasiswa.
+            Asisten AI pintar yang dapat membantu menjawab pertanyaanmu seputar beasiswa, memberikan saran personal, dan memandu proses aplikasimu 24/7.
           </p>
-          <button>Mulai Chat</button>
+          <button>
+            <span>Mulai Chat</span>
+            <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+          </button>
         </div>
         <div class="cardfitur">
-          <div class="icon">📖</div>
-          <h3>Pembelajaran</h3>
+          <div class="icon">📚</div>
+          <h3>Learning Path</h3>
           <p>
-            Siswa dapat belajar mandiri mengenai materi beasiswa dengan konten
-            yang telah kami sediakan.
+            Jalur pembelajaran terstruktur dengan materi berkualitas, video tutorial, dan latihan interaktif untuk mempersiapkan diri meraih beasiswa.
           </p>
-          <button>Mulai Belajar</button>
+          <button>
+            <span>Mulai Belajar</span>
+            <i class="fas fa-graduation-cap" style="margin-left: 8px;"></i>
+          </button>
         </div>
         <div class="cardfitur">
-          <div class="icon">👥</div>
-          <h3>Komunitas</h3>
+          <div class="icon">🌐</div>
+          <h3>Komunitas Global</h3>
           <p>
-            Siswa bisa saling berinteraksi dengan siswa lain untuk berbagi
-            pengalaman dan informasi.
+            Bergabung dengan ribuan pelajar dari seluruh Indonesia, berbagi pengalaman, dan dapatkan mentor dari alumni penerima beasiswa.
           </p>
-          <button>Gabung Komunitas</button>
+          <button>
+            <span>Gabung Sekarang</span>
+            <i class="fas fa-users" style="margin-left: 8px;"></i>
+          </button>
         </div>
         <div class="cardfitur">
-          <div class="icon">💰</div>
-          <h3>Bantuan</h3>
+          <div class="icon">🎯</div>
+          <h3>Tracking Progress</h3>
           <p>
-            Beasiswa khusus untuk masyarakat kurang mampu dengan berbagai
-            kemudahan.
+            Pantau perkembangan aplikasi beasiswamu, dapatkan pengingat deadline, dan rekomendasi langkah berikutnya untuk meningkatkan peluang.
           </p>
-          <button>Cari Bantuan</button>
+          <button>
+            <span>Mulai Tracking</span>
+            <i class="fas fa-chart-line" style="margin-left: 8px;"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -216,6 +225,40 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+
+        // Toggle menu
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.classList.toggle('no-scroll');
+        });
+
+        // Close menu when clicking links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.classList.remove('no-scroll');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const isClickInsideNav = navLinks.contains(e.target);
+            const isClickInsideHamburger = hamburger.contains(e.target);
+            
+            if (!isClickInsideNav && !isClickInsideHamburger && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
+        });
+    });
+    </script>
   </body>
 </html>

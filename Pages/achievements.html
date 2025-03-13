@@ -3,102 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Language Learning Dashboard</title>
-   <link rel="stylesheet" href="../Styles/achievements.css">
+    <title>Achievements - GenCerdas</title>
+    <link rel="stylesheet" href="../Styles/achievements.css">
+    <link rel="stylesheet" href="../Styles/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="profile-card animate-in">
-            <div class="level-info">
-                <div class="level-badge">1</div>
-                <div class="level-text">
-                    <h2>Level 1</h2>
-                    <span class="level-tag">Pelajar Pemanggu</span>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn">
+            <i class='bx bx-chevron-right' id="sidebarIcon"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="profile.html" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="course.html" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="podcast.html" data-text="Podcast"><i class="fas fa-podcast"></i></a></li>
+                <li><a href="upload.html" data-text="Document"><i class="fas fa-file"></i></a></li>
+                <li><a href="achievements.html" class="active" data-text="Achievements"><i class="fas fa-trophy"></i></a></li>
+                <li><a href="beasiswa.html" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="profile-card animate-in">
+                <div class="level-info">
+                    <div class="level-badge">1</div>
+                    <div class="level-text">
+                        <h2>Level 1</h2>
+                        <span class="level-tag">Pelajar Pemanggu</span>
+                    </div>
+                </div>
+                
+                <div class="chef-avatar">
+                    <img src="../Assets/mascot.png" alt="Chef Character">
+                </div>
+                
+                <div class="progress-container">
+                    <div class="xp-labels1">
+                        <span>1240 XP</span>
+                        <span>2000 XP</span>
+                    </div>
+                    <div class="xp-progress">
+                        <div class="progress-bar" style="width: 62%;"></div>
+                    </div>
+                    <div class="xp-remaining">760 XP untuk naik peringkat</div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon flame-icon">🔥</div>
+                        <div class="stat-value">2 Hari</div>
+                        <div class="stat-label">Streak Belajar</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon check-icon">✓</div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Tugas Selesai</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon clock-icon">⏱</div>
+                        <div class="stat-value">2j</div>
+                        <div class="stat-label">Waktu Belajar</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon headphone-icon">🎧</div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Podcast Didengar</div>
+                    </div>
                 </div>
             </div>
             
-            <div class="chef-avatar">
-                <img src="../Assets/mascot.png" alt="Chef Character">
-            </div>
-            
-            <div class="progress-container">
-                <div class="xp-labels1">
-                    <span>1240 XP</span>
-                    <span>2000 XP</span>
-                </div>
-                <div class="xp-progress">
-                    <div class="progress-bar" style="width: 62%;"></div>
-                </div>
-                <div class="xp-remaining">760 XP untuk naik peringkat</div>
-            </div>
-            
-            <div class="stats-container">
-                <div class="stat-card">
-                    <div class="stat-icon flame-icon">🔥</div>
-                    <div class="stat-value">2 Hari</div>
-                    <div class="stat-label">Streak Belajar</div>
+            <div class="achievements-card animate-in" style="animation-delay: 0.1s;">
+                <div class="achievements-title">
+                    <i>🏆</i>
+                    <h3>Pencapaian Terbaru</h3>
                 </div>
                 
-                <div class="stat-card">
-                    <div class="stat-icon check-icon">✓</div>
-                    <div class="stat-value">5</div>
-                    <div class="stat-label">Tugas Selesai</div>
+                <div class="achievement-item">
+                    <div class="achievement-info">
+                        <div class="achievement-icon">🌟</div>
+                        <div class="achievement-text">
+                            <h4>Mencapai Level 3</h4>
+                            <div class="achievement-date">20 Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="achievement-xp">+500 XP</div>
                 </div>
                 
-                <div class="stat-card">
-                    <div class="stat-icon clock-icon">⏱</div>
-                    <div class="stat-value">2j</div>
-                    <div class="stat-label">Waktu Belajar</div>
+                <div class="achievement-item">
+                    <div class="achievement-info">
+                        <div class="achievement-icon">🔥</div>
+                        <div class="achievement-text">
+                            <h4>7 Hari Berturut-turut Belajar</h4>
+                            <div class="achievement-date">19 Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="achievement-xp">+150 XP</div>
                 </div>
                 
-                <div class="stat-card">
-                    <div class="stat-icon headphone-icon">🎧</div>
-                    <div class="stat-value">3</div>
-                    <div class="stat-label">Podcast Didengar</div>
+                <div class="achievement-item">
+                    <div class="achievement-info">
+                        <div class="achievement-icon">🎧</div>
+                        <div class="achievement-text">
+                            <h4>Menyelesaikan Podcast Pertama</h4>
+                            <div class="achievement-date">18 Jan 2024</div>
+                        </div>
+                    </div>
+                    <div class="achievement-xp">+100 XP</div>
                 </div>
             </div>
-        </div>
         
-        <div class="achievements-card animate-in" style="animation-delay: 0.1s;">
-            <div class="achievements-title">
-                <i>🏆</i>
-                <h3>Pencapaian Terbaru</h3>
-            </div>
-            
-            <div class="achievement-item">
-                <div class="achievement-info">
-                    <div class="achievement-icon">🌟</div>
-                    <div class="achievement-text">
-                        <h4>Mencapai Level 3</h4>
-                        <div class="achievement-date">20 Jan 2024</div>
-                    </div>
-                </div>
-                <div class="achievement-xp">+500 XP</div>
-            </div>
-            
-            <div class="achievement-item">
-                <div class="achievement-info">
-                    <div class="achievement-icon">🔥</div>
-                    <div class="achievement-text">
-                        <h4>7 Hari Berturut-turut Belajar</h4>
-                        <div class="achievement-date">19 Jan 2024</div>
-                    </div>
-                </div>
-                <div class="achievement-xp">+150 XP</div>
-            </div>
-            
-            <div class="achievement-item">
-                <div class="achievement-info">
-                    <div class="achievement-icon">🎧</div>
-                    <div class="achievement-text">
-                        <h4>Menyelesaikan Podcast Pertama</h4>
-                        <div class="achievement-date">18 Jan 2024</div>
-                    </div>
-                </div>
-                <div class="achievement-xp">+100 XP</div>
-            </div>
-        </div>
-    
             <div class="nav-container">
                 <button class="nav-item active" onclick="filterCards('all')">Semua</button>
                 <button class="nav-item" onclick="filterCards('kursus')">Kursus</button>
@@ -293,6 +316,7 @@
                 </div>
             </div>
         
+        </div>
     </div>
 
     <script>
@@ -427,6 +451,21 @@
             navItems.forEach(item => item.classList.remove('active'));
             event.target.classList.add('active');
         }
+
+        // Add Sidebar Script
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const toggleBtn = document.getElementById('toggleSidebar');
+            const sidebarIcon = document.getElementById('sidebarIcon');
+
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('expanded');
+                mainContent.classList.toggle('sidebar-expanded');
+                sidebarIcon.classList.toggle('bx-chevron-left');
+                sidebarIcon.classList.toggle('bx-chevron-right');
+            });
+        });
     </script>
 </body>
 </html>

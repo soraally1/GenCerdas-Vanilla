@@ -1,0 +1,807 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FFA726, #FF9800);
+    overflow-x: hidden;
+}
+
+.main-content {
+    margin-left: 70px;
+    padding: 20px;
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-content.sidebar-expanded {
+    margin-left: 240px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+        padding-bottom: calc(15px + 85px);
+    }
+    
+    .main-content.sidebar-expanded {
+        margin-left: 0;
+    }
+
+    .header-card {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .mascot {
+        height: 150px;
+        margin: 1rem auto 0;
+    }
+
+    .user-info h1 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-item {
+        padding: 1rem;
+    }
+
+    .activity-timeline {
+        margin-left: -1rem;
+    }
+
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .document-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .document-icon {
+        margin: 0 auto 1rem;
+    }
+
+    .document-meta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .progress-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .progress-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .scholarships-grid,
+    .upcoming-scholarships-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Safe area padding for modern mobile devices */
+@supports (padding: max(0px)) {
+    @media (max-width: 768px) {
+        .main-content {
+            padding-bottom: calc(15px + 85px + env(safe-area-inset-bottom));
+        }
+    }
+}
+
+/* Header Card */
+.header-card {
+    background: linear-gradient(to right, #FF9800, #FF7043);
+    border-radius: 24px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.header-content {
+    flex: 1;
+    z-index: 1;
+}
+
+.user-info h1 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.level-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.stats-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stats-title {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.stats-value {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.25rem;
+    background: linear-gradient(45deg, #FF9800, #FF5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stats-change {
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stats-change.positive {
+    color: #22c55e;
+}
+
+.stats-change.negative {
+    color: #ef4444;
+}
+
+.stats-icon {
+    background: #fff3e0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.stats-card:hover .stats-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: white;
+    color: #FF9800;
+}
+
+.btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #FF7043;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #ff5722;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mascot */
+.mascot {
+    height: 300px;
+    margin-right: -2rem;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Grid Cards */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.achievements-card,
+.activity-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.achievements-card:hover,
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f5f5f5;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #FFA726;
+}
+
+.header-title i {
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #FF9800, #FF5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-title h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #FF9800, #FF5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.view-all {
+    color: #FF9800;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.view-all:hover {
+    color: #FF7043;
+    background: rgba(255, 152, 0, 0.1);
+}
+
+/* Achievements Grid */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.achievement-item {
+    background: #fff8e1;
+    border: 2px solid #ffe0b2;
+    border-radius: 16px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #FF9800;
+}
+
+.achievement-icon {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, #FF9800, #FF7043);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover .achievement-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.achievement-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.achievement-content p {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.achievement-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.achievement-xp {
+    color: #FF9800;
+    font-weight: 600;
+}
+
+/* Activity Timeline */
+.activity-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.activity-item {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid #ffe0b2;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+}
+
+.activity-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: #FFA726;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover::before {
+    transform: scale(1.5);
+    background: #FF9800;
+}
+
+.activity-icon {
+    position: absolute;
+    left: -18px;
+    top: -5px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF9800;
+    font-size: 0.875rem;
+    border: 2px solid #ffe0b2;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover .activity-icon {
+    transform: rotate(360deg);
+    border-color: #FF9800;
+}
+
+.activity-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.activity-content p {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.activity-date {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* Progress Card */
+.progress-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.progress-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.progress-left {
+    flex: 1;
+}
+
+.progress-right {
+    flex: 1;
+    background: linear-gradient(135deg, #FF9800, #FF7043);
+    border-radius: 16px;
+    padding: 1.5rem;
+    color: white;
+}
+
+.progress-percentage {
+    font-size: 3.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #FF9800, #FF5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.progress-circle svg {
+    transform: rotate(-90deg);
+}
+
+.progress-circle-bg {
+    fill: none;
+    stroke: #ffe0b2;
+    stroke-width: 10;
+}
+
+.progress-circle-value {
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 10;
+    stroke-dasharray: 282.7;
+    stroke-dashoffset: 70.675;
+    transition: stroke-dashoffset 1s ease;
+}
+
+/* Documents Grid */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.document-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.document-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.document-icon {
+    width: 3rem;
+    height: 3rem;
+    background: #fff3e0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #FF9800;
+    transition: all 0.3s ease;
+}
+
+.document-card:hover .document-icon {
+    transform: rotate(5deg);
+    color: #FF5722;
+}
+
+.document-content {
+    flex: 1;
+}
+
+.document-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.document-content p {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.document-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.75rem;
+}
+
+.document-size {
+    color: #888;
+}
+
+.document-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+}
+
+.document-status.verified {
+    background: #dcfce7;
+    color: #22c55e;
+}
+
+.document-status.pending {
+    background: #fff7ed;
+    color: #f97316;
+}
+
+.document-status.draft {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.document-action {
+    background: none;
+    border: none;
+    color: #FF9800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.document-action:hover {
+    background: rgba(255, 152, 0, 0.1);
+    color: #FF5722;
+}
+
+/* Scholarships Grid */
+.scholarships-grid,
+.upcoming-scholarships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.scholarship-card {
+    background: linear-gradient(to bottom right, #fff5e6, #fff0e6);
+    border: 1px solid #ffe0b2;
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.scholarship-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #FF9800;
+}
+
+.scholarship-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.scholarship-header h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.scholarship-institution {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.scholarship-progress {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #f3f4f6;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #FF9800, #FF5722);
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.scholarship-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ffe0b2;
+}
+
+.deadline {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.btn-continue {
+    background: #FF9800;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-continue:hover {
+    background: #FF5722;
+    transform: translateY(-2px);
+} 

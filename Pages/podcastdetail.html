@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Detail - GenCerdas</title>
+    <link rel="stylesheet" href="../Styles/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #ff9553;
+            --secondary-orange: #ab1f1f;
+            --card-orange: #FF5733;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-left: calc(70px + 1rem); /* Adjust margin for sidebar */
+            transition: margin-left 0.3s ease;
+            padding: 2rem 1rem;
+        }
+
+        /* When sidebar is expanded */
+        .container.sidebar-expanded {
+            margin-left: calc(240px + 1rem);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+                padding-bottom: calc(0.5rem + 85px);
+            }
+
+            .container {
+                margin-left: 0;
+                padding: 1rem 0.5rem;
+            }
+
+            .container.sidebar-expanded {
+                margin-left: 0;
+            }
+
+            .hero-section {
+                gap: 1.5rem;
+            }
+
+            .podcast-cover {
+                max-width: 100%;
+                aspect-ratio: 16/9;
+            }
+
+            .podcast-info {
+                text-align: center;
+            }
+
+            .category-tag {
+                padding: 0.375rem 0.75rem;
+                font-size: 0.813rem;
+            }
+
+            .podcast-title {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .podcast-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .author-info {
+                justify-content: center;
+                margin-bottom: 1.5rem;
+            }
+
+            .stats {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .player-section {
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .description-section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .description-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .description-section p {
+                font-size: 0.875rem;
+            }
+
+            .info-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .info-card {
+                padding: 1rem;
+            }
+
+            .info-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .info-content p:first-child {
+                font-size: 0.813rem;
+            }
+
+            .info-content p:last-child {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Safe area padding for modern mobile devices */
+        @supports (padding: max(0px)) {
+            @media (max-width: 768px) {
+                body {
+                    padding-bottom: calc(0.5rem + 85px + env(safe-area-inset-bottom));
+                }
+            }
+        }
+
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                flex-direction: row;
+            }
+        }
+
+        .podcast-cover {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .podcast-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .podcast-cover img:hover {
+            transform: scale(1.05);
+        }
+
+        .podcast-info {
+            color: white;
+            flex: 1;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .podcast-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .podcast-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 2px solid var(--card-orange);
+        }
+
+        .author-details p:first-child {
+            font-weight: 500;
+        }
+
+        .author-details p:last-child {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-item svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .player-section {
+            background: var(--card-orange);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .player-section iframe {
+            width: 100%;
+            height: 166px;
+            border-radius: 0.5rem;
+            border: none;
+        }
+
+        .description-section {
+            background: var(--card-orange);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .description-section h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .description-section p {
+            color: white;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--card-orange);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            background: var(--primary-orange);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .info-content p:first-child {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-content p:last-child {
+            color: white;
+            font-weight: 500;
+        }
+
+        .loading {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .error {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add Sidebar -->
+    <div class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn">
+            <i class='bx bx-chevron-right' id="sidebarIcon"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html" data-text="Home"><i class="fas fa-home"></i></a></li>
+                <li><a href="profile.html" data-text="Profile"><i class="fas fa-user"></i></a></li>
+                <li><a href="course.html" data-text="Courses"><i class="fas fa-graduation-cap"></i></a></li>
+                <li><a href="podcast.html" class="active" data-text="Podcast"><i class="fas fa-podcast"></i></a></li>
+                <li><a href="upload.html" data-text="Document"><i class="fas fa-file"></i></a></li>
+                <li><a href="achievements.html" data-text="Achievements"><i class="fas fa-star"></i></a></li>
+                <li><a href="beasiswa.html" data-text="Beasiswa"><i class="fas fa-gift"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div style="margin-bottom: 2rem;">
+            <button onclick="window.location.href='podcast.html'" style="background: rgba(255, 255, 255, 0.2); border: none; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L4.414 9H17a1 1 0 110 2H4.414l5.293 5.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Back to Podcasts
+            </button>
+        </div>
+
+        <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="content" style="display: none;">
+            <div class="hero-section">
+                <div class="podcast-cover">
+                    <img src="../Assets/Podcast/podcast1.png" alt="Basic TOEFL" class="podcast-image">
+                </div>
+                <div class="podcast-info">
+                    <span class="category-tag">TOEFL</span>
+                    <h1 class="podcast-title">Basic TOEFL</h1>
+                    <p class="podcast-subtitle">Persiapan dasar untuk TOEFL</p>
+                    
+                    <div class="author-info">
+                        <img src="../Assets/G-Gon.png" alt="Author" class="author-avatar">
+                        <div class="author-details">
+                            <p>GenCerdas Team</p>
+                            <p>Creator</p>
+                        </div>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat-item">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>1.5k plays</span>
+                        </div>
+                        <div class="stat-item">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                            </svg>
+                            <span>45 min</span>
+                        </div>
+                        <div class="stat-item">
+                            <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"/>
+                            </svg>
+                            <span>Jan 15, 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-section">
+                <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1984476715" frameborder="0" allow="autoplay"></iframe>
+            </div>
+
+            <div class="description-section">
+                <h2>About this episode</h2>
+                <p>Dalam episode ini, kita akan membahas persiapan dasar untuk menghadapi tes TOEFL. Mulai dari struktur tes, tips time management, hingga strategi menjawab soal reading, listening, speaking, dan writing.</p>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 100-12 6 6 0 000 12z"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <p>Episode</p>
+                        <p>Episode 1</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <p>Duration</p>
+                        <p>45 min</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <p>Category</p>
+                        <p>TOEFL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchPodcastData() {
+            try {
+                // Get podcast ID from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const podcastId = urlParams.get('id');
+
+                if (!podcastId) {
+                    throw new Error('No podcast ID provided');
+                }
+
+                // Show loading state
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('content').style.display = 'none';
+                document.getElementById('error').style.display = 'none';
+
+                // Update UI based on podcast ID
+                let podcastData;
+                switch(podcastId) {
+                    case '1':
+                        podcastData = {
+                            title: "Basic TOEFL",
+                            subtitle: "Persiapan dasar untuk TOEFL",
+                            description: "Dalam episode ini, kita akan membahas persiapan dasar untuk menghadapi tes TOEFL. Mulai dari struktur tes, tips time management, hingga strategi menjawab soal reading, listening, speaking, dan writing.",
+                            imageUrl: "../Assets/Podcast/podcast (1).png",
+                            category: "TOEFL",
+                            duration: "45 min",
+                            played: "1.5k",
+                            publishDate: "Jan 15, 2024",
+                            episodeNumber: "Episode 1",
+                            soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1984476715"
+                        };
+                        break;
+                    case '2':
+                        podcastData = {
+                            title: "Pertanyaan Wawancara Beasiswa",
+                            subtitle: "Tips menjawab pertanyaan wawancara beasiswa",
+                            description: "Episode ini membahas berbagai pertanyaan yang sering muncul dalam wawancara beasiswa dan bagaimana cara menjawabnya dengan baik. Kami juga memberikan contoh jawaban dan tips penting untuk menghadapi wawancara.",
+                            imageUrl: "../Assets/Podcast/podcast (2).png",
+                            category: "Wawancara Beasiswa",
+                            duration: "35 min",
+                            played: "2.1k",
+                            publishDate: "Jan 20, 2024",
+                            episodeNumber: "Episode 2",
+                            soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1984477219"
+                        };
+                        break;
+                    case '3':
+                        podcastData = {
+                            title: "Strategi Mendapatkan Beasiswa",
+                            subtitle: "Panduan lengkap meraih beasiswa impian",
+                            description: "Temukan strategi jitu untuk mendapatkan beasiswa impian Anda. Dari persiapan dokumen, mencari beasiswa yang sesuai, hingga tips menulis essay dan proposal penelitian yang menarik.",
+                            imageUrl: "../Assets/Podcast/podcast (3).png",
+                            category: "Strategi Beasiswa",
+                            duration: "50 min",
+                            played: "3k",
+                            publishDate: "Jan 25, 2024",
+                            episodeNumber: "Episode 3",
+                            soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1984483095"
+                        };
+                        break;
+                    case '4':
+                        podcastData = {
+                            title: "JLPT N5",
+                            subtitle: "Persiapan ujian JLPT N5",
+                            description: "Panduan lengkap untuk persiapan ujian JLPT N5. Mencakup materi dasar bahasa Jepang, kosakata penting, pola kalimat, dan tips menghadapi ujian.",
+                            imageUrl: "../Assets/Podcast/podcast (4).png",
+                            category: "Pembelajaran Bahasa",
+                            duration: "40 min",
+                            played: "1.8k",
+                            publishDate: "Jan 30, 2024",
+                            episodeNumber: "Episode 4",
+                            soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1984476935"
+                        };
+                        break;
+                    case '5':
+                        podcastData = {
+                            title: "Public Speaking",
+                            subtitle: "Teknik public speaking yang efektif",
+                            description: "Pelajari teknik public speaking yang efektif untuk meningkatkan kemampuan komunikasi Anda. Dari persiapan materi, teknik vokal, hingga bahasa tubuh yang tepat.",
+                            imageUrl: "../Assets/Podcast/podcast (5).png",
+                            category: "Pembelajaran Bahasa",
+                            duration: "55 min",
+                            played: "2.5k",
+                            publishDate: "Feb 5, 2024",
+                            episodeNumber: "Episode 5",
+                            soundcloudUrl: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1984476203"
+                        };
+                        break;
+                    default:
+                        throw new Error('Podcast not found');
+                }
+
+                // Update UI
+                const podcastImage = document.querySelector('.podcast-image');
+                podcastImage.src = podcastData.imageUrl;
+                podcastImage.alt = podcastData.title;
+                podcastImage.onerror = function() {
+                    this.src = '../Assets/Podcast/default.jpg';
+                };
+
+                document.querySelector('.category-tag').textContent = podcastData.category;
+                document.querySelector('.podcast-title').textContent = podcastData.title;
+                document.querySelector('.podcast-subtitle').textContent = podcastData.subtitle;
+                document.querySelector('.description-section p').textContent = podcastData.description;
+                document.querySelector('.stats .stat-item:first-child span').textContent = `${podcastData.played} plays`;
+                document.querySelector('.stats .stat-item:nth-child(2) span').textContent = podcastData.duration;
+                document.querySelector('.stats .stat-item:last-child span').textContent = podcastData.publishDate;
+                document.querySelector('.info-card:first-child .info-content p:last-child').textContent = podcastData.episodeNumber;
+                document.querySelector('.info-card:nth-child(2) .info-content p:last-child').textContent = podcastData.duration;
+                document.querySelector('.info-card:last-child .info-content p:last-child').textContent = podcastData.category;
+                document.querySelector('.player-section iframe').src = podcastData.soundcloudUrl;
+
+                // Update page title
+                document.title = `${podcastData.title} - GenCerdas`;
+
+                // Show content
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } catch (error) {
+                console.error('Error fetching podcast:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = error.message === 'No podcast ID provided' ? 
+                    'Please select a podcast from the main page.' : 
+                    'Failed to load podcast details. Please try again later.';
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const container = document.querySelector('.container');
+            const toggleBtn = document.getElementById('toggleSidebar');
+            const sidebarIcon = document.getElementById('sidebarIcon');
+
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('expanded');
+                container.classList.toggle('sidebar-expanded');
+                sidebarIcon.classList.toggle('bx-chevron-left');
+                sidebarIcon.classList.toggle('bx-chevron-right');
+            });
+
+            // Initialize podcast data after sidebar setup
+            fetchPodcastData();
+        });
+    </script>
+</body>
+</html> 

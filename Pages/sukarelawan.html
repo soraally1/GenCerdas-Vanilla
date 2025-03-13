@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadi Sukarelawan - GenCerdas</title>
+    <link rel="stylesheet" href="../Styles/sukarelawan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../Assets/gencerdaslog.png" alt="GenCerdas Logo" />
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="ggon.html">G-Gon</a>
+            <a href="event.html">Event</a>
+            <a href="komunitas.html">Komunitas</a>
+            <a href="course.html">Courses</a>
+        </div>
+        <div class="login-nav">
+            <a href="login.html">Login</a>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Jadilah Bagian dari Perubahan</h1>
+                <p>Bergabung sebagai sukarelawan dan bantu kami mencerdaskan Indonesia</p>
+                <button class="cta-button" onclick="scrollToForm()">
+                    <i class="fas fa-heart"></i>
+                    Daftar Sekarang
+                </button>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>500+</h3>
+                    <p>Sukarelawan Aktif</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>50+</h3>
+                    <p>Daerah Terjangkau</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>1000+</h3>
+                    <p>Pelajar Terbantu</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="programs">
+            <h2>Program Sukarelawan</h2>
+            <div class="program-cards">
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Mentor Beasiswa</h3>
+                    <p>Membimbing pelajar dalam proses aplikasi beasiswa dan persiapan dokumen</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Tutor Online</h3>
+                    <p>Mengajar dan membimbing pelajar secara online dalam berbagai mata pelajaran</p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Pendampingan Daerah</h3>
+                    <p>Mendampingi pelajar di daerah tertinggal untuk akses pendidikan yang lebih baik</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements Section -->
+        <section class="requirements">
+            <h2>Persyaratan Sukarelawan</h2>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Pendidikan Minimal</h3>
+                    <p>Mahasiswa aktif atau lulusan S1/D4</p>
+                </div>
+                <div class="requirement-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Komitmen Waktu</h3>
+                    <p>Minimal 6 bulan komitmen</p>
+                </div>
+                <div class="requirement-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>Passion Mengajar</h3>
+                    <p>Memiliki minat dalam pendidikan</p>
+                </div>
+                <div class="requirement-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Komunikatif</h3>
+                    <p>Kemampuan komunikasi yang baik</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="registration" id="registration">
+            <h2>Formulir Pendaftaran</h2>
+            <form id="volunteer-form" class="registration-form">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="education">Pendidikan Terakhir</label>
+                    <select id="education" name="education" required>
+                        <option value="">Pilih Pendidikan</option>
+                        <option value="high_school">SMA/SMK</option>
+                        <option value="d3">D3</option>
+                        <option value="d4_s1">D4/S1</option>
+                        <option value="s2">S2</option>
+                        <option value="s3">S3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="program">Program yang Diminati</label>
+                    <select id="program" name="program" required>
+                        <option value="">Pilih Program</option>
+                        <option value="mentor">Mentor Beasiswa</option>
+                        <option value="tutor">Tutor Online</option>
+                        <option value="regional">Pendampingan Daerah</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="motivation">Motivasi Menjadi Sukarelawan</label>
+                    <textarea id="motivation" name="motivation" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-paper-plane"></i>
+                    Kirim Pendaftaran
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <script src="../Scripts/sukarelawan.js"></script>
+</body>
+</html> 
