@@ -19,7 +19,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #FFE0B2, #FFB74D);
+    background: linear-gradient(135deg, #FFA726, #FF9800);
     min-height: 100vh;
 }
 
@@ -132,14 +132,14 @@ body {
 
 .heading h1 {
     font-size: 3rem;
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .heading h3 {
     font-size: 1.2rem;
-    color: var(--gray);
+    color: var(--light-gray);
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -194,7 +194,7 @@ body {
     border: none;
     border-radius: 25px;
     background: var(--white);
-    color: var(--gray);
+    color: var(--black);
     font-size: 1rem;
     cursor: pointer;
     transition: var(--transition);
@@ -203,7 +203,7 @@ body {
 
 .category-btn.active,
 .category-btn:hover {
-    background: var(--primary-orange);
+    background: var(--dark-orange);
     color: var(--white);
     transform: translateY(-2px);
 }

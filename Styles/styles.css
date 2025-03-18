@@ -198,6 +198,10 @@ body.no-scroll {
         border-radius: 15px;
     }
 
+    .dino-img{
+        display: none ;
+    }
+
     .hamburger {
         display: block;
         z-index: 1001;
@@ -503,6 +507,10 @@ body.no-scroll {
     z-index: 2;
 }
 
+.right-wrap p {
+    width: 400px;
+}
+
 .button-container {
     display: flex;
     flex-direction: column;
@@ -550,7 +558,7 @@ body.no-scroll {
     position: absolute;
     top: 50%;
     right: -100px;
-    width: 450px;
+    width: 400px;
     transform: translateY(-50%);
     z-index: 1;
     transition: all 0.5s ease;
