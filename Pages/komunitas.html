@@ -22,114 +22,149 @@
         <div class="login-nav">
             <a href="login.html">Login</a>
         </div>
-        <div class="hamburger">
+        <button class="hamburger" aria-label="Toggle menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
-        </div>
+        </button>
     </nav>   
 
-    <div class="hero-section">
-        <div class="heading">
-            <h1>Komunitas Belajar</h1>
-            <h3>Bergabung dengan komunitas belajar, diskusi dengan teman-teman, <br> dan berbagi pengalaman bersama.</h3>
-        </div>
-        <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Cari komunitas...">
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="heading">
+                <h1>Komunitas Belajar</h1>
+                <h3>Bergabung dengan komunitas belajar, diskusi dengan teman-teman, <br class="hide-mobile"> dan berbagi pengalaman bersama.</h3>
             </div>
-            <div class="filter-box">
-                <i class="fas fa-filter"></i>
-                <select>
-                    <option value="">Semua Kategori</option>
-                    <option value="technology">Technology</option>
-                    <option value="art">Art</option>
-                    <option value="music">Music</option>
-                    <option value="education">Education</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="categories">
-        <button class="category-btn active">Semua</button>
-        <button class="category-btn">Technology</button>
-        <button class="category-btn">Art</button>
-        <button class="category-btn">Music</button>
-        <button class="category-btn">Education</button>
-    </div>
-
-    <div class="card-container">
-        <div class="card">
-            <div class="card-image">
-                <img src="../Assets/Campusexpo.png" alt="Community Image">
-                <div class="card-overlay">
-                    <span class="member-count"><i class="fas fa-users"></i> 1000+ Members</span>
+            
+            <form class="search-container" id="searchForm">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" 
+                           placeholder="Cari komunitas..." 
+                           aria-label="Search communities"
+                           id="searchInput">
+                    <button type="button" class="clear-search" aria-label="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
-            </div>
-            <div class="card-content">
-                <div class="card-header">
-                    <h3>Tech Enthusiasts</h3>
-                    <span class="category-tag">Technology</span>
+                <div class="filter-box">
+                    <i class="fas fa-filter"></i>
+                    <select aria-label="Filter by category" id="categoryFilter">
+                        <option value="">Semua Kategori</option>
+                        <option value="technology">Technology</option>
+                        <option value="art">Art</option>
+                        <option value="music">Music</option>
+                        <option value="education">Education</option>
+                        <option value="business">Business</option>
+                        <option value="lifestyle">Lifestyle</option>
+                    </select>
                 </div>
-                <p class="description">Komunitas untuk penggemar teknologi dan inovasi digital.</p>
-                <div class="card-footer">
-                    <div class="activity">
-                        <i class="fas fa-comments"></i>
-                        <span>500+ Discussions</span>
+            </form>
+        </section>
+
+        <section class="categories-section">
+            <div class="categories">
+                <button class="category-btn active" data-category="all">Semua</button>
+                <button class="category-btn" data-category="technology">Technology</button>
+                <button class="category-btn" data-category="art">Art</button>
+                <button class="category-btn" data-category="music">Music</button>
+                <button class="category-btn" data-category="education">Education</button>
+                <button class="category-btn" data-category="business">Business</button>
+                <button class="category-btn" data-category="lifestyle">Lifestyle</button>
+            </div>
+        </section>
+
+        <section class="communities-section">
+            <div class="card-container">
+                <!-- Tech Community Card -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="../Assets/Campusexpo.png" alt="Tech Enthusiasts Community" loading="lazy">
+                        <div class="card-overlay">
+                            <span class="member-count">
+                                <i class="fas fa-users"></i> 1000+ Members
+                            </span>
+                        </div>
                     </div>
-                    <button class="join-btn">Join Community</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="../Assets/Campusexpo2.jpeg" alt="Community Image">
-                <div class="card-overlay">
-                    <span class="member-count"><i class="fas fa-users"></i> 500+ Members</span>
-                </div>
-            </div>
-            <div class="card-content">
-                <div class="card-header">
-                    <h3>Creative Artists</h3>
-                    <span class="category-tag">Art</span>
-                </div>
-                <p class="description">Tempat berbagi karya seni dan inspirasi kreatif.</p>
-                <div class="card-footer">
-                    <div class="activity">
-                        <i class="fas fa-comments"></i>
-                        <span>300+ Discussions</span>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>Tech Enthusiasts</h3>
+                            <span class="category-tag">Technology</span>
+                        </div>
+                        <p class="description">Komunitas untuk penggemar teknologi dan inovasi digital.</p>
+                        <div class="card-footer">
+                            <div class="activity">
+                                <i class="fas fa-comments"></i>
+                                <span>500+ Discussions</span>
+                            </div>
+                            <button class="join-btn" aria-label="Join Tech Enthusiasts Community">
+                                <i class="fas fa-plus"></i>
+                                <span>Join</span>
+                            </button>
+                        </div>
                     </div>
-                    <button class="join-btn">Join Community</button>
-                </div>
-            </div>
-        </div>
+                </article>
 
-        <div class="card">
-            <div class="card-image">
-                <img src="../Assets/Campusexpo2.jpeg" alt="Community Image">
-                <div class="card-overlay">
-                    <span class="member-count"><i class="fas fa-users"></i> 750+ Members</span>
-                </div>
-            </div>
-            <div class="card-content">
-                <div class="card-header">
-                    <h3>Music Lovers</h3>
-                    <span class="category-tag">Music</span>
-                </div>
-                <p class="description">Komunitas pecinta musik dan penggemar berbagai genre.</p>
-                <div class="card-footer">
-                    <div class="activity">
-                        <i class="fas fa-comments"></i>
-                        <span>400+ Discussions</span>
+                <!-- Art Community Card -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="../Assets/Campusexpo2.jpeg" alt="Creative Artists Community" loading="lazy">
+                        <div class="card-overlay">
+                            <span class="member-count">
+                                <i class="fas fa-users"></i> 500+ Members
+                            </span>
+                        </div>
                     </div>
-                    <button class="join-btn">Join Community</button>
-                </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>Creative Artists</h3>
+                            <span class="category-tag">Art</span>
+                        </div>
+                        <p class="description">Tempat berbagi karya seni dan inspirasi kreatif.</p>
+                        <div class="card-footer">
+                            <div class="activity">
+                                <i class="fas fa-comments"></i>
+                                <span>300+ Discussions</span>
+                            </div>
+                            <button class="join-btn" aria-label="Join Creative Artists Community">
+                                <i class="fas fa-plus"></i>
+                                <span>Join</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Music Community Card -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="../Assets/Campusexpo2.jpeg" alt="Music Lovers Community" loading="lazy">
+                        <div class="card-overlay">
+                            <span class="member-count">
+                                <i class="fas fa-users"></i> 750+ Members
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h3>Music Lovers</h3>
+                            <span class="category-tag">Music</span>
+                        </div>
+                        <p class="description">Komunitas pecinta musik dan penggemar berbagai genre.</p>
+                        <div class="card-footer">
+                            <div class="activity">
+                                <i class="fas fa-comments"></i>
+                                <span>400+ Discussions</span>
+                            </div>
+                            <button class="join-btn" aria-label="Join Music Lovers Community">
+                                <i class="fas fa-plus"></i>
+                                <span>Join</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <script src="../Scripts/komunitas.js"></script>
 </body>

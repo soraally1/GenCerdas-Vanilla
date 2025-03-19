@@ -696,3 +696,259 @@ body {
     align-items: center;
     gap: 5px;
 }
+
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .stats-container {
+        gap: 15px;
+    }
+
+    .achievements-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 95%;
+    }
+
+    .profile-card {
+        padding: 15px;
+    }
+
+    .chef-avatar {
+        width: 100px;
+        height: 100px;
+        right: 20px;
+    }
+
+    .level-info {
+        max-width: calc(100% - 120px);
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .achievement-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .main-content.sidebar-expanded {
+        margin-left: 0;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    .profile-card {
+        border-radius: 15px;
+    }
+
+    .level-badge {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .level-text h2 {
+        font-size: 18px;
+    }
+
+    .level-tag {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    .chef-avatar {
+        width: 80px;
+        height: 80px;
+        right: 15px;
+        top: 10px;
+    }
+
+    .stats-container {
+        margin-top: 12px;
+    }
+
+    .stat-card {
+        padding: 12px 8px;
+    }
+
+    .stat-icon {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+
+    .nav-container {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .nav-item {
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+
+    .achievements-container {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-content {
+        padding: 0.8rem;
+    }
+
+    .container {
+        padding: 0 5px;
+    }
+
+    .profile-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .level-info {
+        gap: 8px;
+        max-width: calc(100% - 90px);
+    }
+
+    .level-badge {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .level-text h2 {
+        font-size: 16px;
+    }
+
+    .level-tag {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    .chef-avatar {
+        width: 70px;
+        height: 70px;
+        right: 10px;
+    }
+
+    .xp-labels1 {
+        font-size: 12px;
+    }
+
+    .xp-remaining {
+        font-size: 11px;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 10px 6px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .nav-container {
+        padding: 8px;
+        gap: 6px;
+    }
+
+    .nav-item {
+        padding: 5px 12px;
+        font-size: 12px;
+    }
+
+    .achievement-card {
+        padding: 12px;
+    }
+
+    .achievement-header {
+        margin-bottom: 10px;
+    }
+
+    .achievement-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .achievement-title {
+        font-size: 14px;
+    }
+
+    .achievement-subtitle {
+        font-size: 11px;
+    }
+
+    .achievement-xp {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .main-content {
+        padding: 0.6rem;
+    }
+
+    .profile-card {
+        padding: 10px;
+    }
+
+    .level-info {
+        max-width: calc(100% - 80px);
+    }
+
+    .chef-avatar {
+        width: 60px;
+        height: 60px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .nav-container {
+        padding: 6px;
+    }
+
+    .nav-item {
+        padding: 4px 10px;
+        font-size: 11px;
+    }
+
+    .achievements-container {
+        grid-template-columns: 1fr;
+    }
+}

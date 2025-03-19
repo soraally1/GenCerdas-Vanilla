@@ -1141,7 +1141,7 @@ body.no-scroll {
     
     .nav-links {
         position: fixed;
-        left: -100%;
+        left: -200%;
         top: 0;
         flex-direction: column;
         background-color: #FF8A4C;

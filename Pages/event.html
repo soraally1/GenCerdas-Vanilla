@@ -64,21 +64,38 @@
     </div>
 </div>
 
+<div class="form-overlay" id="formOverlay"></div>
+
 <div class="form-container" id="registrationForm">
+    <h2>Form Pendaftaran</h2>
     <form class="registration-form">
-        <h2>Form Pendaftaran</h2>
-        <input type="text" placeholder="Nama" required>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="No. HP" required>
-        <button type="submit">Daftar</button>
-        <button type="button" onclick="hideForm()">Tutup</button>
+        <div class="form-group">
+            <input type="text" placeholder="Nama" required>
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input type="tel" placeholder="No. HP" required>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" class="submit-btn">Daftar</button>
+            <button type="button" class="cancel-btn" onclick="hideForm()">Tutup</button>
+        </div>
     </form>
 </div>
 
 <script src="../Js/event.js"></script>
 <script>
-    function showForm() { registrationForm.style.display = 'block'; }
-    function hideForm() { registrationForm.style.display = 'none'; }
+    function showForm() {
+        document.getElementById('registrationForm').style.display = 'block';
+        document.getElementById('formOverlay').style.display = 'block';
+    }
+    
+    function hideForm() {
+        document.getElementById('registrationForm').style.display = 'none';
+        document.getElementById('formOverlay').style.display = 'none';
+    }
 </script>
 </body>
 </html>

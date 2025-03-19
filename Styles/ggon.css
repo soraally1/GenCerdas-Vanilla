@@ -473,10 +473,14 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
+    min-width: 40px;
+    padding: 0;
+    transition: all 0.3s ease;
 }
 
 .send-btn:hover {
     background-color: #FF8C61;
+    transform: scale(1.05);
 }
 
 .dragon-container {
@@ -523,36 +527,76 @@ body {
 
 @media (max-width: 992px) {
     .container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         padding: 0 1rem;
+        margin-top: 20px;
     }
 
     .chat-container {
         max-width: 100%;
     }
 
-    .dragon-container {
-        width: 250px;
-        height: 250px;
-        margin-top: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        margin-top: 20px;
+    .chat-body {
+        height: 300px;
     }
 
     .dragon-container {
         width: 200px;
         height: 200px;
+        margin-bottom: 1rem;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 15px;
+    }
+
+    .chat-container {
+        max-width: 95%;
+    }
+
+    .chat-body {
+        height: 250px;
+    }
+
+    .dragon-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .chat-header {
+        padding: 15px;
+    }
+
+    .header-title {
+        font-size: 1.3rem;
+    }
+
+    .send-btn {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 1.1rem;
+        margin-left: 8px;
     }
 }
 
 @media (max-width: 576px) {
     .container {
         padding: 0 0.5rem;
+        margin-top: 10px;
+    }
+
+    .chat-container {
+        max-width: 92%;
+    }
+
+    .chat-body {
+        height: 220px;
+        padding: 15px;
     }
 
     .dragon-container {
@@ -563,5 +607,22 @@ body {
     .status-badge {
         font-size: 0.8rem;
         padding: 0.4rem 0.8rem;
+    }
+
+    .chat-footer {
+        padding: 10px;
+    }
+
+    .chat-input {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .send-btn {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        font-size: 1rem;
+        margin-left: 6px;
     }
 }

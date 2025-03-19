@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Achievements - GenCerdas</title>
     <link rel="stylesheet" href="../Styles/achievements.css">
     <link rel="stylesheet" href="../Styles/sidebar.css">
@@ -459,11 +459,124 @@
             const toggleBtn = document.getElementById('toggleSidebar');
             const sidebarIcon = document.getElementById('sidebarIcon');
 
+            // Toggle sidebar
             toggleBtn.addEventListener('click', () => {
                 sidebar.classList.toggle('expanded');
                 mainContent.classList.toggle('sidebar-expanded');
                 sidebarIcon.classList.toggle('bx-chevron-left');
                 sidebarIcon.classList.toggle('bx-chevron-right');
+            });
+
+            // Close sidebar on mobile when clicking outside
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                        sidebar.classList.remove('expanded');
+                        mainContent.classList.remove('sidebar-expanded');
+                        sidebarIcon.classList.remove('bx-chevron-left');
+                        sidebarIcon.classList.add('bx-chevron-right');
+                    }
+                }
+            });
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('expanded');
+                        mainContent.classList.remove('sidebar-expanded');
+                        sidebarIcon.classList.remove('bx-chevron-left');
+                        sidebarIcon.classList.add('bx-chevron-right');
+                    }
+                }, 250);
+            });
+
+            // Add touch support for category navigation
+            const categoriesSection = document.querySelector('.categories-section');
+            let isScrolling = false;
+            let startX;
+            let scrollLeft;
+
+            categoriesSection.addEventListener('touchstart', (e) => {
+                isScrolling = true;
+                startX = e.touches[0].pageX - categoriesSection.offsetLeft;
+                scrollLeft = categoriesSection.scrollLeft;
+            });
+
+            categoriesSection.addEventListener('touchmove', (e) => {
+                if (!isScrolling) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - categoriesSection.offsetLeft;
+                const walk = (x - startX) * 2;
+                categoriesSection.scrollLeft = scrollLeft - walk;
+            });
+
+            categoriesSection.addEventListener('touchend', () => {
+                isScrolling = false;
+            });
+
+            // Enhance card interactions
+            document.querySelectorAll('.achievement-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+
+            // Add lazy loading for images
+            document.querySelectorAll('img').forEach(img => {
+                img.setAttribute('loading', 'lazy');
+            });
+
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Handle category filtering with animation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    const cards = document.querySelectorAll('.achievement-card');
+                    
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.nav-item').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter cards with animation
+                    cards.forEach(card => {
+                        if (category === 'all' || card.classList.contains(category)) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
             });
         });
     </script>
